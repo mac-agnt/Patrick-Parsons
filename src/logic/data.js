@@ -1,4 +1,4 @@
-/* Demo data and pure helpers for the Pulse prototype (Kilbride Group). */
+/* Demo data and pure helpers for the Pulse prototype (Spirit of Birr). */
 
 const INK="var(--ink)", BODY="var(--body)", DIM="var(--dim)", FAINT="var(--faint)";
 const LIME="var(--accent)", GREEN="var(--ok)", AMBER="var(--warn)", RED="var(--bad)", NEUTRAL="var(--neutral)";
@@ -43,77 +43,69 @@ const REC_SECTIONS = [
 ];
 
 const CONTACTS = [
-  ["Aoife Nolan","Accounts manager","aoife@kilbridegroup.ie","Kilbride Group","staff","var(--accent)"],
-  ["Séamus Byrne","Senior installer","seamus@kilbridegroup.ie","Kilbride Group","staff","#9fd6f0"],
-  ["Tom Walsh","Operations lead","tom@kilbridegroup.ie","Kilbride Group","staff","#e6c78a"],
-  ["Niamh Cronin","Trade counter","niamh@kilbridegroup.ie","Kilbride Group","staff","#c8b4f0"],
-  ["Dermot Casey","Buyer","dermot@caseybuilders.ie","Casey Builders","customer","#9fd6f0"],
-  ["Liam Dunne","Owner","liam@dunneandsons.ie","Dunne & Sons Ltd","on stop","#e2a08c"],
-  ["Máire Fitzgerald","Director","maire@fitzheating.ie","Fitzgerald Heating","watch","#e6c78a"],
-  ["Paul Ó Riain","Site foreman","paul@oriain.ie","Ó Riain, Glanmire","customer","#a8e0c0"],
-  ["Cathal Moore","Account manager","cathal@munsterplumbing.ie","Munster Plumbing","supplier","#c8b4f0"]
+  ["Patrick Parsons","Host / Lord Oxmantown","","Spirit of Birr","staff","var(--accent)"],
+  ["Tina Ramirez","Culinary","","Spirit of Birr","staff","#e6c78a"],
+  ["Mary Kinsella","Culinary","","Spirit of Birr","staff","#a8e0c0"],
+  ["John Callely","Whiskey Expert","","Spirit of Birr","staff","#c8b4f0"],
+  ["Conrad Bailey","Estate Guide","","Spirit of Birr","staff","#9fd6f0"],
+  ["Avery Brooks","US travel planner","","E-2011","prospect","#e2a08c"],
+  ["Li Wei","Dublin Chinese Alumni","","E-2012","prospect","#e2a08c"],
+  ["Boston Heritage Travel","Travel agent","","E-2014","partner","#e6c78a"],
+  ["Chen Family Reunion","Guest group","","B-1043","guest","#a8e0c0"]
 ];
 
 const FILE_TREE = [
-  {type:"folder", id:"f-org", name:"Organisations", depth:0},
-  {type:"file", id:"fl-1", name:"Casey Builders — framework 2026.pdf", depth:1, parent:"f-org", indexed:true,
-   path:"Organisations / Casey Builders", title:"Casey Builders — framework 2026",
-   facts:[["TYPE","PDF · 6 pages"],["ADDED","12 Jan 2026"],["INDEXED","All 6 pages"],["OWNER","Aoife Nolan"]],
-   body:["The framework sets the discount tiers for 2026 and the payment terms Casey Builders trade on. Tier two applies from €40k of annual spend, which they passed in August.",
-     "Pricing is fixed to the June supplier agreement, so a change on the Munster side flows through here rather than being renegotiated separately.",
-     "Termination requires sixty days' notice on either side. Nothing in the document blocks putting the account on stop for non-payment."],
-   links:[["Casey Builders","org"],["Dermot Casey","person"],["PO-4471","order"]]},
-  {type:"file", id:"fl-2", name:"Dunne & Sons — credit application.pdf", depth:1, parent:"f-org", indexed:true,
-   path:"Organisations / Dunne & Sons Ltd", title:"Dunne & Sons — credit application",
-   facts:[["TYPE","PDF · 4 pages"],["ADDED","3 Mar 2011"],["INDEXED","All 4 pages"],["OWNER","Aoife Nolan"]],
-   body:["The original 2011 application, signed by Liam Dunne, setting a €20,000 limit against thirty-day terms.",
-     "Days-to-pay ran at twelve for most of that period and moved to seventy-four after May 2026, which is what put the account on stop.",
-     "The personal guarantee in section four is still in force and has never been called on."],
-   links:[["Dunne & Sons Ltd","org"],["Liam Dunne","person"],["INV-10428","invoice"]]},
-  {type:"folder", id:"f-cert", name:"Certificates", depth:0},
-  {type:"file", id:"fl-3", name:"Séamus Byrne — gas safe 2026.pdf", depth:1, parent:"f-cert", indexed:true,
-   path:"Certificates / Installers", title:"Séamus Byrne — gas safe 2026",
-   facts:[["TYPE","PDF · 2 pages"],["EXPIRES","14 Nov 2026"],["INDEXED","Both pages"],["OWNER","Operations"]],
-   body:["Registration covers domestic boilers and commercial water heaters, valid to 14 November 2026.",
-     "The renewal reminder fires sixty days before expiry. That routine failed twice this week because Mallow yard has no contact on file."],
-   links:[["Séamus Byrne","person"],["Certificate renewal reminder","workflow"]]},
-  {type:"file", id:"fl-4", name:"Public liability — 2026.pdf", depth:1, parent:"f-cert", indexed:false,
-   path:"Certificates / Insurance", title:"Public liability — 2026",
-   facts:[["TYPE","PDF · 12 pages"],["EXPIRES","1 Apr 2027"],["INDEXED","Not indexed"],["OWNER","Operations"]],
-   body:["Cover to €6.5m across all three locations. Not indexed, so Helios cannot answer questions from it yet.",
-     "Indexing it would let the site-visits module check cover before a job is booked at a new address."],
-   links:[["Head office","location"],["Ballincollig depot","location"]]},
-  {type:"folder", id:"f-fin", name:"Finance", depth:0},
-  {type:"file", id:"fl-5", name:"INV-10428.pdf", depth:1, parent:"f-fin", indexed:true,
-   path:"Finance / Invoices", title:"INV-10428",
-   facts:[["TYPE","PDF · 1 page"],["VALUE","€28,410"],["AGE","74 days"],["OWNER","Aoife Nolan"]],
-   body:["The oldest unpaid invoice on the ledger and the reason Dunne & Sons is on stop.",
-     "Two reminders have gone out. The third is drafted and waiting on the finance manager inside the chase workflow."],
-   links:[["Dunne & Sons Ltd","org"],["Chase unpaid invoices","workflow"]]},
-  {type:"file", id:"fl-6", name:"Month-end close — August.xlsx", depth:1, parent:"f-fin", indexed:false,
-   path:"Finance / Close", title:"Month-end close — August",
-   facts:[["TYPE","XLSX · 9 sheets"],["ADDED","1 Sep 2026"],["INDEXED","Not indexed"],["OWNER","Aoife Nolan"]],
-   body:["The working file behind the August close. Cash collected came in at €368k against €358k in July.",
-     "Spreadsheets are stored but not indexed by default — the numbers Helios quotes come from the ledger, not from here."],
-   links:[["Finance","area"],["Month-end close","workflow"]]}
+  {type:"folder", id:"f-bk", name:"Bookings", depth:0},
+  {type:"file", id:"fl-1", name:"B-1043 Chen Family Reunion — booking summary.pdf", depth:1, parent:"f-bk", indexed:true,
+   path:"Bookings / B-1043", title:"B-1043 Chen Family Reunion",
+   facts:[["TYPE","Demo summary"],["DATE","12 Nov 2026"],["GUESTS","14"],["VALUE","€1,820"]],
+   body:["Afternoon tea for 14 guests, 12 November, 12:30. Mandarin-language welcome note requested.",
+     "Two dietary requirements are unconfirmed. Culinary team: Tina Ramirez and Mary Kinsella. Estate guide: Conrad Bailey.",
+     "Preparation is 6 of 10 complete."],
+   links:[["Chen Family Reunion","org"],["Afternoon Tea","workflow"]]},
+  {type:"file", id:"fl-2", name:"B-1035 Ashford Travel Group — completion note.pdf", depth:1, parent:"f-bk", indexed:true,
+   path:"Bookings / B-1035", title:"B-1035 Ashford Travel Group",
+   facts:[["TYPE","Demo summary"],["COMPLETED","22 Oct 2026"],["GUESTS","12"],["VALUE","€1,560"]],
+   body:["Completed afternoon tea for 12 guests. Feedback request is awaiting approval.",
+     "A referral invitation is drafted and has not been sent."],
+   links:[["Ashford Travel Group","org"],["Post-visit feedback and referral","workflow"]]},
+  {type:"folder", id:"f-sales", name:"Sales", depth:0},
+  {type:"file", id:"fl-3", name:"E-2014 Boston Heritage Travel — proposal.pdf", depth:1, parent:"f-sales", indexed:true,
+   path:"Sales / E-2014", title:"E-2014 Boston Heritage Travel proposal",
+   facts:[["TYPE","Demo proposal"],["SENT","30 Oct 2026"],["GUESTS","18"],["VALUE","€2,340"]],
+   body:["Proposal for 18 afternoon tea guests at €130 per guest (demo assumption).",
+     "No reply yet. A follow-up is drafted and needs approval before sending."],
+   links:[["Boston Heritage Travel","org"],["Enquiry follow-up","workflow"]]},
+  {type:"file", id:"fl-4", name:"E-2012 Li Wei — enquiry notes.pdf", depth:1, parent:"f-sales", indexed:false,
+   path:"Sales / E-2012", title:"E-2012 Li Wei",
+   facts:[["TYPE","Demo notes"],["PROPOSED","27 Nov 2026"],["GUESTS","20"],["VALUE","€2,600"]],
+   body:["Dublin Chinese Alumni group. Private afternoon tea. Mandarin communication requested.",
+     "Not indexed, so the assistant cannot answer from it yet."],
+   links:[["Li Wei","person"]]},
+  {type:"folder", id:"f-content", name:"Stories of Birr", depth:0},
+  {type:"file", id:"fl-5", name:"Stories of Birr — editorial calendar.xlsx", depth:1, parent:"f-content", indexed:true,
+   path:"Content / Calendar", title:"Stories of Birr editorial calendar",
+   facts:[["TYPE","Demo calendar"],["ITEMS","6"],["PUBLISHING","Manual only"],["OWNER","Patrick Parsons"]],
+   body:["Six draft stories across Instagram, website and a Mandarin-language draft. Nothing is published automatically."],
+   links:[["Content Studio","area"]]}
 ];
 
 const ONTO_NODES = [
-  ["Organisation","entity",500,300,1,"Customers and suppliers. Balances arrive from the ledger through the record spine."],
-  ["Person","entity",300,190,1,"One entity for staff and external contacts, scoped by role rather than split in two."],
-  ["Location","entity",700,190,1,"Multi-branch as a business concept: locations plus the location permission scope."],
-  ["Team","entity",250,430,1,"Teams are records, so the team scope on a grant resolves against them."],
+  ["Guest","entity",500,300,1,"Customers and suppliers. Balances arrive from the ledger through the record spine."],
+  ["Enquiry","entity",300,190,1,"One entity for staff and external contacts, scoped by role rather than split in two."],
+  ["Experience","entity",700,190,1,"Multi-branch as a business concept: locations plus the location permission scope."],
+  ["Team Member","entity",250,430,1,"Teams are records, so the team scope on a grant resolves against them."],
   ["Task","entity",690,430,1,"Work, whatever it is attached to. Queues are one permission-filtered query."],
-  ["Approval","entity",850,320,0,"A request and its steps. Each decision is written as the person who made it."],
-  ["Invoice","ledger",390,95,0,"Read through the spine — the wholesale ledger stays the source of truth."],
-  ["Order","ledger",620,95,0,"Purchase and sales orders, linked to the organisation that raised them."],
-  ["Visit","module",860,470,0,"Contributed by site-visits, with its own table, predicate and tools."],
-  ["File","entity",140,300,0,"Documents against any record. Indexed pages are what Helios can read."],
-  ["works at","predicate",395,240,0,"Person → Organisation."],
-  ["located at","predicate",605,240,0,"Organisation → Location."],
-  ["member of","predicate",360,370,0,"Person → Team."],
+  ["Campaign","entity",850,320,0,"A request and its steps. Each decision is written as the person who made it."],
+  ["Quote","ledger",390,95,0,"Read through the spine — the wholesale ledger stays the source of truth."],
+  ["Booking","ledger",620,95,0,"Purchase and sales orders, linked to the organisation that raised them."],
+  ["Itinerary","module",860,470,0,"Contributed by site-visits, with its own table, predicate and tools."],
+  ["Feedback","entity",140,300,0,"Documents against any record. Indexed pages are what Helios can read."],
+  ["requests","predicate",395,240,0,"Person → Organisation."],
+  ["for","predicate",605,240,0,"Organisation → Location."],
+  ["assigned to","predicate",360,370,0,"Person → Team."],
   ["relates to","predicate",600,370,0,"Task → anything."],
-  ["attached to","predicate",140,372,0,"File → anything."]
+  ["produces","predicate",140,372,0,"File → anything."]
 ];
 
 const ONTO_EDGES = [
@@ -154,12 +146,14 @@ const REC_TEMPLATE_CATS = ["All","Records","Case work","Finance","Notes","Ops"];
 /* ---- admin hub ---- */
 /* ---- admin hub: 13 settings areas in five groups ---- */
 const PEOPLE = [
-  ["Aoife Nolan","Accounts manager","aoife@kilbridegroup.ie","Head office","active","Admin","2 min ago"],
-  ["Séamus Byrne","Senior installer","seamus@kilbridegroup.ie","Ballincollig","active","Standard","1 h ago"],
-  ["Tom Walsh","Operations lead","tom@kilbridegroup.ie","Head office","active","Manager","34 min ago"],
-  ["Niamh Cronin","Trade counter","niamh@kilbridegroup.ie","Ballincollig","active","Standard","3 h ago"],
-  ["Dermot Casey","Buyer · Casey Builders","dermot@caseybuilders.ie","—","external","External","2 days ago"],
-  ["Liam Dunne","Owner · Dunne & Sons","liam@dunneandsons.ie","—","inactive","External","19 days ago"]
+  ["Patrick Parsons","Host / Lord Oxmantown","","Birr Castle","active","Admin","2 min ago"],
+  ["Tina Ramirez","Culinary","","Birr Castle","active","Standard","1 h ago"],
+  ["Mary Kinsella","Culinary","","Birr Castle","active","Standard","3 h ago"],
+  ["John Callely","Whiskey Expert","","Birr Castle","active","Standard","Yesterday"],
+  ["Conrad Bailey","Estate Guide","","Birr Castle","active","Standard","Yesterday"],
+  ["Sales & Partnerships Coordinator","Mock role, demo only","","—","active","Manager","Demo"],
+  ["Guest Experience Coordinator","Mock role, demo only","","—","active","Manager","Demo"],
+  ["Marketing Coordinator","Mock role, demo only","","—","active","Standard","Demo"]
 ];
 const ROLE_LEVELS = ["Admin","Manager","Standard","External"];
 const PERM_KEYS = [["view","View records"],["edit","Edit records"],["approve","Approve payments"]];
@@ -177,27 +171,27 @@ const ROLE_SCOPES = ["All records","Their location","Assigned only"];
 const DEFAULT_PERMS = {Admin:{view:true,edit:true,approve:true}, Manager:{view:true,edit:true,approve:true},
   Standard:{view:true,edit:true,approve:false}, External:{view:true,edit:false,approve:false}};
 const INTEGRATIONS = [
-  {name:"Gmail", blurb:"Mail in and out of Pulse — threads attach to the record they mention, and drafts wait for your yes.", tint:"#ea4335", status:"connected", statusKind:"ok",
+  {name:"Spirit of Birr website", blurb:"Existing public site. Pulse does not read or write it yet.", tint:DIM, status:"integration planned", statusKind:"warn",
+   glyph:"M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17Z M3.5 12h17 M12 3.5c2.3 2.4 3.4 5.2 3.4 8.5s-1.1 6.1-3.4 8.5c-2.3-2.4-3.4-5.2-3.4-8.5S9.7 5.9 12 3.5Z",
+   lastSync:"Not connected", usage:"Requires discovery", auth:"—", scopes:[]},
+  {name:"Website enquiry form", blurb:"Would route new enquiries into Sales. Demo data stands in today.", tint:DIM, status:"demo only", statusKind:"warn",
+   glyph:"M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17Z M3.5 12h17 M12 3.5c2.3 2.4 3.4 5.2 3.4 8.5s-1.1 6.1-3.4 8.5c-2.3-2.4-3.4-5.2-3.4-8.5S9.7 5.9 12 3.5Z",
+   lastSync:"Not connected", usage:"Demo only", auth:"—", scopes:[]},
+  {name:"Business email", blurb:"Provider unknown. Drafts stay inside Pulse until approved.", tint:DIM, status:"requires discovery", statusKind:"off",
    glyph:"M4 7.2 12 13 20 7.2 M4 7.2v10.6h16V7.2 M4 7.2 8.5 4h7L20 7.2",
-   lastSync:"2 min ago", usage:"340 emails/day", auth:"OAuth 2.0", scopes:["Read","Send"]},
-  {name:"Xero", blurb:"Invoices, payments and credit notes sync both ways, so the ledger and the record spine never drift.", tint:"#13b5ea", status:"disconnected", statusKind:"bad",
-   glyph:"M4.5 12a7.5 7.5 0 0 1 12.8-5.3 M19.5 12a7.5 7.5 0 0 1-12.8 5.3 M17.3 4v3.3h-3.3 M6.7 20v-3.3H10",
-   lastSync:"27 Feb — token expired", usage:"148 invoices queued", auth:"OAuth 2.0", scopes:["Read","Write"]},
-  {name:"Sage", blurb:"Nightly read of the chart of accounts and balances, mapped onto Pulse organisations.", tint:"#00d639", status:"read only", statusKind:"warn",
-   glyph:"M4 8 12 4.5 20 8 12 11.5 4 8Z M4 13 12 16.5 20 13 M4 18 12 21.5 20 18",
-   lastSync:"14 min ago", usage:"9 accounts synced nightly", auth:"API key", scopes:["Read"]},
-  {name:"HubSpot", blurb:"Contacts, companies and deals stay matched to Pulse records without a second address book.", tint:"#ff7a59", status:"connected", statusKind:"ok",
-   glyph:"M12 9.6a2.4 2.4 0 1 0 0 4.8 2.4 2.4 0 0 0 0-4.8Z M12 4v3.4 M12 16.6V20 M4 12h3.4 M16.6 12H20 M6.5 6.5l2.4 2.4 M15.1 15.1l2.4 2.4 M17.5 6.5l-2.4 2.4 M8.9 15.1l-2.4 2.4",
-   lastSync:"6 min ago", usage:"1.1k contacts synced", auth:"OAuth 2.0", scopes:["Read","Write"]},
-  {name:"WhatsApp Business", blurb:"Send updates and chase messages from the record, logged against it as they go.", tint:"#25d366", status:"write only", statusKind:"warn",
-   glyph:"M4 19.5 5.3 15A7.7 7.7 0 1 1 8.6 18.2L4 19.5Z M8.6 10.3c0 3 2.4 5.4 5.4 5.4",
-   lastSync:"11 min ago", usage:"62 messages/day", auth:"API key", scopes:["Send"]},
-  {name:"Resend", blurb:"Transactional email for everything Pulse generates — reminders, briefings and receipts.", tint:"var(--accent)", status:"write only", statusKind:"warn",
-   glyph:"M3.5 12 20.5 4 16 20l-3.4-6.6L3.5 12Z",
-   lastSync:"38 min ago", usage:"210 emails/day", auth:"API key", scopes:["Send"]},
-  {name:"Composio", blurb:"One connector for the long tail of tools, so a new system does not need a new build.", tint:DIM, status:"not connected", statusKind:"off",
-   glyph:"M9 3v5 M15 3v5 M6 8h12v3.5a6 6 0 0 1-12 0V8Z M12 17.5V21",
-   lastSync:"—", usage:"—", auth:"—", scopes:[]}
+   lastSync:"Not connected", usage:"Provider unknown", auth:"—", scopes:[]},
+  {name:"Calendar", blurb:"Provider unknown. Booking calendar is local demo state.", tint:DIM, status:"requires discovery", statusKind:"off",
+   glyph:"M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17Z M3.5 12h17 M12 3.5c2.3 2.4 3.4 5.2 3.4 8.5s-1.1 6.1-3.4 8.5c-2.3-2.4-3.4-5.2-3.4-8.5S9.7 5.9 12 3.5Z",
+   lastSync:"Not connected", usage:"Provider unknown", auth:"—", scopes:[]},
+  {name:"Web analytics", blurb:"Not verified. All analytics shown are illustrative.", tint:DIM, status:"not connected", statusKind:"off",
+   glyph:"M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17Z M3.5 12h17 M12 3.5c2.3 2.4 3.4 5.2 3.4 8.5s-1.1 6.1-3.4 8.5c-2.3-2.4-3.4-5.2-3.4-8.5S9.7 5.9 12 3.5Z",
+   lastSync:"Not connected", usage:"Not verified", auth:"—", scopes:[]},
+  {name:"Marketing platforms", blurb:"No advertising or social accounts connected. No auto-publishing.", tint:DIM, status:"not connected", statusKind:"off",
+   glyph:"M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17Z M3.5 12h17 M12 3.5c2.3 2.4 3.4 5.2 3.4 8.5s-1.1 6.1-3.4 8.5c-2.3-2.4-3.4-5.2-3.4-8.5S9.7 5.9 12 3.5Z",
+   lastSync:"Not connected", usage:"None", auth:"—", scopes:[]},
+  {name:"Payment provider", blurb:"None selected. No payments are taken in Pulse.", tint:DIM, status:"not selected", statusKind:"off",
+   glyph:"M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17Z M3.5 12h17 M12 3.5c2.3 2.4 3.4 5.2 3.4 8.5s-1.1 6.1-3.4 8.5c-2.3-2.4-3.4-5.2-3.4-8.5S9.7 5.9 12 3.5Z",
+   lastSync:"Not connected", usage:"None", auth:"—", scopes:[]}
 ];
 
 /* Background catalogue. Each entry is pure CSS so a tile is the real thing at
@@ -287,7 +281,7 @@ const ADMIN_CARDS = [
    footer:"Last login checked 4 minutes ago", action:"Review 3 invites",
    listLabel:"WHAT YOU CONTROL HERE",
    rows:[["Add, invite or remove employees","",""],["Create teams and departments","6 teams"],["Assign managers","4 reporting lines"],
-     ["Set locations","Head office · Ballincollig · Mallow"],["Suspend accounts","2 suspended"],["View last login","48 people tracked"]]},
+     ["Set locations","Birr Castle"],["Suspend accounts","2 suspended"],["View last login","48 people tracked"]]},
   {id:"teams", group:"ORGANISATION", title:"Roles & permissions", icon:"shield", tint:"var(--accent)",
    blurb:"Permission templates, and exactly what each person can reach.",
    tags:["4 roles","64 permissions","3 scopes"],
@@ -301,7 +295,7 @@ const ADMIN_CARDS = [
    blurb:"Who reports to whom, where they work and when.",
    tags:["3 locations","Europe/Dublin","EUR"],
    listLabel:"WHAT YOU CONTROL HERE",
-   rows:[["Company details","Kilbride Group"],["Departments","5"],["Teams","6"],["Locations","3"],
+   rows:[["Company details","Spirit of Birr"],["Departments","5"],["Teams","6"],["Locations","3"],
      ["Reporting lines","4"],["Working hours","08:00–17:30, Mon–Fri"],["Holidays","Irish public holidays"],
      ["Default currency and timezone","EUR · Europe/Dublin"]]},
 
@@ -333,11 +327,11 @@ const ADMIN_CARDS = [
 
   {id:"integrations", group:"SYSTEMS", title:"Integrations", icon:"plug", tint:"#6ad0f0",
    blurb:"Email, accounting, CRM and messaging — and which way data flows.",
-   tags:["6 connected","1 disconnected","2 read-only"], badge:"Xero down", badgeKind:"bad",
-   footer:"Xero token expired 27 February", action:"Reconnect",
+   tags:["0 live","7 planned or unknown"], badge:"Demo only", badgeKind:"warn",
+   footer:"No live integrations. All data is mock.", action:"Review systems",
    listLabel:"CONNECTIONS",
-   rows:[["Gmail","read and write"],["Xero","disconnected"],["Sage","read only"],["HubSpot","read and write"],
-     ["WhatsApp Business","write only"],["Resend","write only"],["Composio","not connected"]]},
+   rows:[["Website","integration planned"],["Enquiry form","demo only"],["Email","requires discovery"],["Calendar","requires discovery"],
+     ["Analytics","not verified"],["Marketing platforms","not connected"],["Payments","not selected"]]},
   {id:"modules", group:"SYSTEMS", title:"Modules & configuration", icon:"modules", tint:"#f0c04b",
    blurb:"Turn modules on, and make Pulse speak the business's own words.",
    tags:["3 installed","1 available","2 renamed terms"],
@@ -356,9 +350,9 @@ const ADMIN_CARDS = [
    bySeverity:[["High","137",RED],["Medium","59",AMBER],["Low","35",DIM]],
    issues:[["Duplicate records","74","high","Merge on matching name and VAT number","Fix automatically"],
      ["Missing required fields","62","high","4 organisations have no billing email","Fix automatically"],
-     ["Failed imports","18","medium","Re-run the 14 August Sage batch","Retry"],
+     ["Failed imports","18","medium","Re-check the 9 Nov enquiry import","Retry"],
      ["Out-of-date information","41","medium","Not touched in over 18 months","Review"],
-     ["Broken connections","1","high","Xero refresh token expired","Reconnect"],
+     ["Missing confirmations","2","high","Chen Family dietary requirements","Review"],
      ["Unmatched records","23","low","Invoices with no organisation attached","Review"],
      ["Records needing review","12","low","Flagged by an agent as inconsistent","Review"]],
    rows:[]},
@@ -384,7 +378,7 @@ const ADMIN_CARDS = [
    tags:["Backup 02:00","30-day restore"],
    footer:"Last backup completed 02:00 today", action:"Run backup",
    listLabel:"WHAT YOU CONTROL HERE",
-   rows:[["Import data","CSV, Sage, HubSpot"],["Export data","full or per module"],["Backup status","healthy · 02:00 daily"],
+   rows:[["Import data","CSV only (demo)"],["Export data","full or per module"],["Backup status","healthy · 02:00 daily"],
      ["Restore previous versions","30 days available"],["Merge records","74 candidates"],
      ["Data retention","7 years"],["Delete company data","requires two admins"]]},
 
@@ -392,7 +386,7 @@ const ADMIN_CARDS = [
    blurb:"Logo, accent colour, templates and how agents appear.",
    tags:["Lime accent","2 templates"],
    listLabel:"WHAT YOU CONTROL HERE",
-   rows:[["Company logo","kilbride-mark.svg"],["Pulse accent colour","oklch(0.86 0.19 118)"],
+   rows:[["Company logo","spirit-of-birr-crest.png"],["Pulse accent colour","oklch(0.86 0.19 118)"],
      ["Email templates","3"],["Document templates","2"],["Agent appearance","12 faces · 6 shells"],
      ["Customer-facing portal branding","on", true]]},
   {id:"appearance", group:"EXPERIENCE", title:"Appearance & themes", icon:"brand", tint:"#6ad0f0",
@@ -415,37 +409,32 @@ const SRC_TINT = {Gmail:"#f07a9d", Pulse:"var(--accent)", Sage:"#6ad0f0", WhatsA
 const SRC_ABBR = {Gmail:"GM", Pulse:"PL", Sage:"SG", WhatsApp:"WA", HubSpot:"HS", Xero:"XR", Agent:"AI"};
 
 const DATA_EVENTS = [
-  ["New customer created","McKenna Transport was added from a web enquiry.","Web form","McKenna Transport","Pulse","completed"],
-  ["Invoice imported","INV-10512 for €3,240 arrived from Sage and matched to an open order.","Sage sync","Casey Builders","Sage","completed"],
-  ["Email received","Purchase order attached — parsed and filed against the account.","accounts@caseybuilders.ie","Casey Builders","Gmail","completed"],
-  ["File uploaded","Signed framework 2026.pdf — 6 pages indexed for Helios.","Aoife Nolan","Casey Builders","Pulse","completed"],
-  ["42 records imported","Nightly Sage sync brought in 42 invoice lines across 9 accounts.","Sage sync","9 organisations","Sage","completed"],
-  ["CRM record updated","Credit limit changed on the account after the August review.","HubSpot sync","Fitzgerald Heating","HubSpot","completed"],
-  ["Form submitted","Site survey request for a boiler replacement in Glanmire.","Web form","Ó Riain, Glanmire","Pulse","completed"],
-  ["WhatsApp message received","Photo of the meter reading filed against the visit.","Séamus Byrne","Ballincollig depot","WhatsApp","completed"],
-  ["External system synced","Xero connection retried and failed — token still expired.","Xero","148 invoices queued","Xero","failed"]
+  ["Booking request received","Li Wei asked for a private afternoon tea for 20 on 27 Nov (mock event).","Web form (demo)","E-2012","Pulse","completed"],
+  ["Quote generated","Draft quote Q-2014: 18 guests, €2,340.","Lead Concierge","E-2014","Agent","completed"],
+  ["Guest requirements updated","Two dietary requirements added to Chen Family Reunion.","Guest Care","B-1043","Pulse","completed"],
+  ["Enquiry received","O'Rourke Family, 10 guests, afternoon tea.","Web form (demo)","E-2013","Pulse","completed"],
+  ["Booking confirmed","Pacific Heritage Travel, 19 guests, whiskey tasting, 19 Nov.","Patrick Parsons","B-1046","Pulse","completed"],
+  ["Booking conflict detected","E-2011 and E-2015 both request Fri 20 Nov 12:30.","Booking Coordinator","20 Nov 12:30","Agent","failed"]
 ];
 
 const PEOPLE_EVENTS = [
-  ["Aoife approved a refund","€412 written off on INV-10233 after the parts dispute closed.","Aoife Nolan","Glanmire Mechanical","Pulse","completed"],
-  ["Tom changed a booking","Thursday's depot visit moved to 11:00 to fit the delivery window.","Tom Walsh","Ballincollig depot","Pulse","completed"],
-  ["Mac assigned a task","Lease decision handed to himself, due Thursday.","Martin Kilbride","Ballincollig depot","Pulse","completed"],
-  ["Finance uploaded a report","August month-end close workbook, nine sheets.","Aoife Nolan","Head office","Pulse","completed"],
-  ["Niamh edited customer details","Billing email corrected so reminders stop bouncing.","Niamh Cronin","Dunne & Sons Ltd","Pulse","completed"],
-  ["Séamus completed a visit","Warranty callback closed — parts ordered on the spot.","Séamus Byrne","Fitzgerald Heating","Pulse","completed"],
-  ["Purchase order raised","PO-4471 for €14,280 sent up for sign-off.","Aoife Nolan","Munster Plumbing","Pulse","awaiting"],
-  ["Credit limit increase requested","€10,000 to €18,000 — waiting on the second approval.","Niamh Cronin","Casey Builders","Pulse","awaiting"]
+  ["Staff preparation task completed","Venue checklist ticked for B-1041.","Mary Kinsella","B-1041","Pulse","completed"],
+  ["Host assigned","Patrick Parsons assigned to B-1042.","Patrick Parsons","B-1042","Pulse","completed"],
+  ["Proposal reviewed","Boston Heritage proposal checked before follow-up.","Patrick Parsons","E-2014","Pulse","completed"],
+  ["Menu notes updated","Afternoon tea menu notes for the Chen Family.","Tina Ramirez","B-1043","Pulse","completed"],
+  ["Whiskey expert confirmation","John Callely to confirm B-1045.","John Callely","B-1045","Pulse","awaiting"],
+  ["Referral message awaiting approval","Ashford Travel Group referral invitation, draft only.","Guest Care","B-1035","Pulse","awaiting"]
 ];
 
 const AI_EVENTS = [
-  ["Finance Agent checked 143 invoices","Three accounts over their limit and €41.2k past 60 days.","Finance Agent","3 organisations","Agent","working"],
-  ["Sales Agent qualified a new lead","McKenna Transport scored 82/100 on company size, location and enquiry detail.","Sales Agent","McKenna Transport","HubSpot","working"],
-  ["Operations Agent updated a schedule","Van 04's jobs redistributed across two installers.","Operations Agent","Ballincollig depot","Agent","working"],
-  ["Helios prepared a report","Weekly management one-pager written and filed.","Helios","Management","Agent","working"],
-  ["Agent paused for approval","Chase email to Dunne & Sons drafted — needs your yes before it sends.","Finance Agent","Dunne & Sons Ltd","Agent","awaiting"],
-  ["Workflow failed","Certificate renewal reminder could not find a contact for Mallow yard.","Operations","Mallow yard","Agent","failed"],
-  ["Stock Watch raised order lines","Two lines below reorder point before Thursday's jobs.","Stock Watch","Munster Plumbing","Agent","working"],
-  ["Briefing Agent posted the morning brief","Two items needed you; the rest was noise.","Briefing Agent","Martin Kilbride","WhatsApp","completed"]
+  ["Booking Coordinator checked 16 slots","10 unfilled, one conflict on 20 Nov.","Booking Coordinator","9 to 22 Nov","Agent","working"],
+  ["Lead Concierge classified 3 enquiries","O'Rourke, Harris, Sino-Irish Summer Academy.","Lead Concierge","3 enquiries","Agent","working"],
+  ["Partner Outreach drafted a follow-up","Boston Heritage Travel, needs your approval.","Partner Outreach","E-2014","Agent","awaiting"],
+  ["Campaign draft created","Mandarin-language introduction for Chinese residents in Ireland.","Audience Strategist","Chinese market","Agent","working"],
+  ["Guest Care drafted a feedback request","Ashford Travel Group, awaiting approval.","Guest Care","B-1035","Agent","awaiting"],
+  ["Revenue Analyst updated forecast","Confirmed €10,920, priced pipeline €12,100.","Revenue Analyst","Revenue","Agent","completed"],
+  ["Ops Watchdog flagged dietary gap","Two requirements unconfirmed on B-1043.","Ops Watchdog","B-1043","Agent","failed"],
+  ["Briefing posted the morning brief","Six bookings, ten open slots, one conflict.","Briefing","Patrick Parsons","Agent","completed"]
 ];
 
 const STREAM_DEFS = [
@@ -460,6 +449,11 @@ const STREAM_DEFS = [
 const NAV = [
   {label:"Home", icon:"helios", page:"Home"},
   {label:"Agents", icon:"navAgents", page:"Agents"},
+  {label:"Sales", icon:"pulseLine", page:"Sales"},
+  {label:"Bookings", icon:"navWork", page:"Bookings"},
+  {label:"Experiences", icon:"navRecords", page:"Experiences"},
+  {label:"Operations", icon:"navWork", page:"Operations"},
+  {label:"Marketing", icon:"navDash", page:"Marketing"},
   {label:"Dashboard", icon:"navDash", page:"Dashboard", dot:true},
   {label:"Work", icon:"navWork", page:"Work"},
   {label:"Records", icon:"navRecords", page:"Records"},
@@ -468,70 +462,72 @@ const NAV = [
 
 /* Inbox items follow the real InboxItem shape: what happened, why it matters, what I can do. */
 const ITEMS = {
-  po:{kind:"Approval", importance:"high", icon:ICONS.approvals, age:"18m",
-    title:"Purchase order PO-4471 — €14,280",
-    why:"Raised by Aoife Nolan. €4,280 above your sign-off threshold, so it routed to you.",
-    detail:"Both lines are below reorder point and committed to Thursday's jobs. Pricing matches the June supplier agreement. Approving writes the decision as you and fires core.approval.updated.",
-    actionLabel:"Approve", secondaryLabel:"Request changes", group:"Approvals",
-    fields:[{k:"Provider",v:"core.approvals"},{k:"Requested by",v:"Aoife Nolan"},{k:"Value",v:"€14,280"},{k:"Record",v:"PO-4471"}],
-    history:[{when:"Today 08:54",text:"Aoife Nolan raised the request"},{when:"Today 08:54",text:"Routed to Martin Kilbride — over threshold"}]},
-  sync:{kind:"Alert", importance:"critical", icon:ICONS.health, age:"6h",
-    title:"Xero sync failed — expired token",
-    why:"148 invoices have been queued since 02:14. Reconnecting posts them automatically.",
-    detail:"The refresh token was last authorised on 27 February. Third failure this year; moving the connection to the service account would stop it recurring. The dispatcher retried twice before dead-lettering.",
-    actionLabel:"Reconnect", secondaryLabel:"Snooze", group:"Alerts",
-    fields:[{k:"Provider",v:"core.notifications"},{k:"Integration",v:"Xero"},{k:"Queued",v:"148 invoices"},{k:"Event",v:"core.automation.failed"}],
-    history:[{when:"Today 02:14",text:"Sync failed — invalid_grant"},{when:"Today 02:16",text:"Retried twice, then dead-lettered"}]},
+  sync:{kind:"Alert", importance:"critical", icon:ICONS.health, age:"1h",
+    title:"20 Nov 12:30 requested by two groups",
+    why:"Avery Brooks (E-2011, 16 tea guests, €2,080) and Fiona Greene (E-2015, 12 whiskey guests, €960) both want Fri 20 Nov 12:30. Both are tentative.",
+    detail:"Nothing is double-booked. Whiskey Tasting fits the 15:00 session; the tea group keeps 12:30. Approving drafts the alternative for your review; nothing is sent.",
+    actionLabel:"Propose alternative", secondaryLabel:"Hold for Avery", group:"Alerts",
+    fields:[{k:"Provider",v:"bookings.conflicts"},{k:"Requests",v:"E-2011, E-2015"},{k:"Slot",v:"Fri 20 Nov 12:30"}],
+    history:[{when:"Today 09:02",text:"Conflict detected by Ops Watchdog"}]},
+  po:{kind:"Approval", importance:"high", icon:ICONS.approvals, age:"3h",
+    title:"Boston Heritage Travel follow-up due (E-2014)",
+    why:"18 guests, afternoon tea, €2,340. Proposal sent 30 Oct with no reply.",
+    detail:"Lead Concierge drafted a short follow-up. External messages need your approval before anything goes out.",
+    actionLabel:"Approve draft", secondaryLabel:"Edit", group:"Approvals",
+    fields:[{k:"Enquiry",v:"E-2014"},{k:"Value",v:"€2,340"},{k:"Guests",v:"18"},{k:"Source",v:"Travel agent"}],
+    history:[{when:"30 Oct",text:"Proposal sent"},{when:"Today",text:"Follow-up due"}]},
   visit:{kind:"Task", importance:"high", icon:ICONS.visits, age:"2h",
-    title:"Site visit at Ballincollig depot is unassigned",
-    why:"Scheduled for tomorrow 09:00 with no installer against it.",
-    detail:"Contributed by the site-visits module through its own inbox provider. Core never learns what a visit is — it sorts by importance and age like everything else.",
-    actionLabel:"Assign installer", secondaryLabel:"Reschedule", group:"Work",
-    fields:[{k:"Provider",v:"site-visits.unassigned"},{k:"Entity",v:"site-visits.visit"},{k:"Scheduled",v:"Tomorrow 09:00"},{k:"Status",v:"scheduled"}],
-    history:[{when:"Yesterday 16:20",text:"Visit created by Tom Walsh"},{when:"Today 07:00",text:"Flagged unassigned by the briefing job"}]},
-  auto:{kind:"Alert", importance:"normal", icon:ICONS.autos, age:"3h",
-    title:"“Overdue reminder” skipped 4 contacts",
-    why:"Four organisations have no billing email, so the send step could not run.",
-    detail:"The automation ran at 08:00 and sent six of ten reminders. Each step is recorded in automation_run_steps with its input, output and error.",
-    actionLabel:"Fix the records", secondaryLabel:"Disable step", group:"Automations",
-    fields:[{k:"Automation",v:"Overdue invoice reminder"},{k:"Run",v:"partial"},{k:"Sent",v:"6 of 10"},{k:"Failed step",v:"notify.email"}],
-    history:[{when:"Today 08:00",text:"Run completed with warnings"},{when:"Yesterday 08:00",text:"Same 4 records skipped"}]},
+    title:"Chen Family: confirm two dietary requirements",
+    why:"B-1043, 12 Nov, 14 guests, €1,820. A Mandarin-language welcome note is also requested.",
+    detail:"Preparation is 6 of 10. Culinary team (Tina Ramirez, Mary Kinsella) need dietary details before the 12th.",
+    actionLabel:"Open checklist", secondaryLabel:"Reassign", group:"Work",
+    fields:[{k:"Booking",v:"B-1043"},{k:"Guests",v:"14"},{k:"Date",v:"12 Nov"},{k:"Value",v:"€1,820"}],
+    history:[{when:"Today 08:40",text:"Flagged by Ops Watchdog"}]},
+  auto:{kind:"Alert", importance:"normal", icon:ICONS.autos, age:"Yesterday",
+    title:"Li Wei: bilingual reply awaiting approval (E-2012)",
+    why:"20 guests, private afternoon tea, €2,600, proposed 27 Nov. Mandarin requested.",
+    detail:"Guest Care drafted English and Mandarin versions. Bilingual review recommended before sending.",
+    actionLabel:"Review draft", secondaryLabel:"Snooze", group:"Automations",
+    fields:[{k:"Enquiry",v:"E-2012"},{k:"Guests",v:"20"},{k:"Value",v:"€2,600"},{k:"Date",v:"27 Nov"}],
+    history:[{when:"Yesterday",text:"Booking request received"}]},
   task:{kind:"Task", importance:"normal", icon:ICONS.work, age:"Thu",
-    title:"Ballincollig lease renewal closes Thursday",
-    why:"No decision recorded against the contract and the notice period is 30 days.",
-    detail:"The lease runs to 31 October. Ballincollig carried 38% of counter revenue this year; rent is 4.1% of that.",
-    actionLabel:"Open record", secondaryLabel:"Assign", group:"Work",
-    fields:[{k:"Provider",v:"core.tasks"},{k:"Due",v:"Thu 27 Aug"},{k:"Assignee",v:"Martin Kilbride"},{k:"Priority",v:"high"}],
-    history:[{when:"18 Aug",text:"Task materialised from a recurring rule"},{when:"2 Feb",text:"Contract uploaded by Aoife Nolan"}]}
+    title:"Ashford Travel Group: feedback and referral drafts (B-1035)",
+    why:"Completed 22 Oct, 12 tea guests, €1,560. Feedback request awaiting approval; referral invitation drafted, not sent.",
+    detail:"Approving queues a feedback request. Referral invite stays draft until you release it.",
+    actionLabel:"Approve feedback", secondaryLabel:"Hold referral", group:"Work",
+    fields:[{k:"Booking",v:"B-1035"},{k:"Guests",v:"12"},{k:"Value",v:"€1,560"}],
+    history:[{when:"22 Oct",text:"Experience completed"}]}
 };
 const ORDER = ["sync","po","visit","auto","task"];
 
 const ANSWERS = {
-  credit:{tool:"core_search", effect:"read",
-    text:"Three organisations are over their agreed limit this morning, and €41.2k of the balance is past 60 days. Dunne & Sons is the one to act on: days-to-pay went from 12 to 74 since May while order volume held steady.",
-    cols:["Organisation","Balance","Over","Oldest"],
-    rows:[["Dunne & Sons","€28,410","€8,410","74d"],["Fitzgerald Heating","€9,240","€2,240","63d"],["Riverside Devs","€3,560","€560","61d"]],
-    actions:[["Draft chase emails",1],["Open Dunne & Sons",0]]},
-  jobs:{tool:"core_tasks_find", effect:"read",
-    text:"Eleven tasks are past their due date. Two slipped on Friday when Van 04 went off the road at Ballincollig; the other nine are waiting on stock. Ballincollig carries seven of the eleven, well above its usual share.",
-    cols:["Task","Subject","Late","Owner"],
-    rows:[["Boiler swap follow-up","Ó Riain, Glanmire","4d","S. Byrne"],["Bathroom fit sign-off","Casey Builders","3d","T. Walsh"],["Rad replace invoice","Kelleher, Cobh","2d","S. Byrne"]],
-    actions:[["Reassign the two van tasks",1],["Open Work → Overdue",0]]},
-  chase:{tool:"core_email_draft", effect:"write", confirm:true,
-    confirmSummary:"Send one chase email to accounts@dunneandsons.ie referencing INV-10428 (€28,410, 74 days), offering two instalments to 30 September.",
-    text:"Drafted. This is a write tool, so I have not sent it — the proposal is stored with a hash of the exact arguments, and confirming replays those stored arguments rather than anything from your yes.",
+  gaps:{tool:"bookings_capacity", effect:"read",
+    text:"Ten of your sixteen bookable slots between 9 and 22 November are unfilled (6 of 16 confirmed, 37.5%). Confirmed value is €10,920 across 99 guests. The 20 November 12:30 slot is contested by two tentative requests.",
+    cols:["Date","Session","Status","Note"],
+    rows:[["Tue 17 Nov","12:30","Open","Whiskey fits 15:00"],["Thu 12 Nov","15:00","Open","Chen Family 12:30 same day"],["Fri 20 Nov","12:30","Contested","E-2011 vs E-2015"]],
+    actions:[["Open Bookings capacity",0],["Resolve 20 Nov conflict",1]]},
+  bookings:{tool:"bookings_find", effect:"read",
+    text:"Six confirmed group experiences, 99 guests, €10,920 quoted value (synthetic demo data). Next up is Sarah Mitchell Group on Monday 9 November, 12 guests.",
+    cols:["Ref","Client","Date","Guests","Value"],
+    rows:[["B-1041","Sarah Mitchell Group","9 Nov","12","€1,560"],["B-1042","Emerald Corporate Group","10 Nov","16","€2,080"],["B-1043","Chen Family Reunion","12 Nov","14","€1,820"],["B-1044","Harper Ireland Journey","13 Nov","18","€2,340"]],
+    actions:[["Open upcoming bookings",0]]},
+  chase:{tool:"sales_email_draft", effect:"write", confirm:true,
+    confirmSummary:"Send one follow-up to Boston Heritage Travel on E-2014 (18 afternoon tea guests, €2,340, proposal sent 30 Oct).",
+    text:"Drafted. External messages need your approval, so nothing has gone out. The stored draft is replayed exactly as written when you confirm.",
     actions:[["Confirm and send",1],["Edit draft",0]]},
-  sync:{tool:"core_operations_health", effect:"read",
-    text:"The Xero connection failed at 02:14 with an expired refresh token — last authorised 27 February. Nothing was lost: 148 invoices are queued and post once reconnected. This is the third token failure this year, so it is worth moving the connection to the service account.",
-    actions:[["Open System health",1],["Assign to Aoife",0]]},
-  visits:{tool:"site_visits_find", effect:"read",
-    text:"Four site visits are booked this week and one has no installer against it. That tool is contributed by the site-visits module, not core — installing the module is what gave me the ability to answer this.",
-    cols:["Visit","Organisation","When","Status"],
-    rows:[["Boiler service","Casey Builders","Wed 09:00","scheduled"],["Survey","Ó Riain","Wed 14:00","scheduled"],["Depot check","Ballincollig","Thu 09:00","unassigned"]],
-    actions:[["Assign the unassigned visit",1],["Open Site visits",0]]},
+  chen:{tool:"operations_prep", effect:"read",
+    text:"Chen Family Reunion (B-1043, 12 Nov, 14 guests, €1,820) is 6 of 10 prepared. Two dietary requirements are unconfirmed and the Mandarin welcome note has not been drafted.",
+    cols:["Item","Status","Owner"],
+    rows:[["Dietary requirements (2)","Unconfirmed","Tina Ramirez"],["Mandarin welcome note","Not drafted","Patrick Parsons"],["Venue ready","Pending","Conrad Bailey"]],
+    actions:[["Open event prep",1],["Draft Mandarin note",0]]},
+  china:{tool:"marketing_segments", effect:"read",
+    text:"Chinese market: Li Wei (E-2012, 20 guests, €2,600, 27 Nov, Mandarin requested) is the live lead. Chen Family is already booked. The 10-day student programme (E-2016) is a concept, unpriced and not bookable.",
+    cols:["Ref","Prospect","Guests","Value"],
+    rows:[["E-2012","Li Wei / Dublin Chinese Alumni","20","€2,600"],["E-2016","Sino-Irish Summer Academy","15","Unpriced"],["B-1043","Chen Family Reunion","14","€1,820"]],
+    actions:[["Open Chinese campaigns",0]]},
   fallback:{tool:"core_search", effect:"read",
-    text:"I can answer that from the records you have access to. Everything I reach goes through a registered tool with a declared permission — there is no SQL tool — and a record you may not see comes back as not found rather than forbidden.",
-    actions:[["Show me what you can do",0]]}
+    text:"I can answer that from the Spirit of Birr demo records: bookings, enquiries, capacity, operations and marketing. Try asking which dates need more bookings.",
+    actions:[["Show unfilled sessions",0]]}
 };
 
 // Turns a plain-English filter name into a full dashboard area — the "primitive
@@ -602,261 +598,217 @@ function synthesizeCustomArea(name){
 
 function pickAnswer(q){
   const s = q.toLowerCase();
-  if (/visit|site visit|installer/.test(s)) return ANSWERS.visits;
-  if (/chase|email|draft|send/.test(s)) return ANSWERS.chase;
-  if (/credit|limit|debtor|owe|outstanding|dunne/.test(s)) return ANSWERS.credit;
-  if (/task|late|overdue|slip|work/.test(s)) return ANSWERS.jobs;
-  if (/sync|xero|integration|token|fail|broke|health/.test(s)) return ANSWERS.sync;
+  if (/chen|prepare|arrival|dietary/.test(s)) return ANSWERS.chen;
+  if (/follow|draft|email|send|agent/.test(s)) return ANSWERS.chase;
+  if (/chinese|china|mandarin|li wei/.test(s)) return ANSWERS.china;
+  if (/unfilled|gap|empty|capacity|slot|date|available|priorit/.test(s)) return ANSWERS.gaps;
+  if (/booking|next week|upcoming|confirmed/.test(s)) return ANSWERS.bookings;
   return ANSWERS.fallback;
 }
 
 const ORGS = [
-  ["Dunne & Sons Ltd","Customer","€28,410","74 days","on stop"],
-  ["Casey Builders","Customer","€6,120","12 days","active"],
-  ["Fitzgerald Heating","Customer","€9,240","63 days","watch"],
-  ["Munster Plumbing Supplies","Supplier","—","—","active"],
-  ["Riverside Developments","Customer","€3,560","61 days","watch"],
-  ["Glanmire Mechanical","Customer","€1,180","8 days","active"]
+  ["Boston Heritage Travel","Travel agent","€2,340","Proposal sent","open"],
+  ["Pacific Heritage Travel","Travel agent","€1,520","B-1046","active"],
+  ["Harper Ireland Journey","Travel agent","€2,340","B-1044","active"],
+  ["Celtic Luxury Tours","Destination management","€1,520","E-2018","open"],
+  ["Ashford Travel Group","Destination management","€1,560","B-1035","completed"],
+  ["Dublin Cultural Society","Cultural organisation","€1,600","B-1045","active"]
 ];
 const TEAMS = [
-  ["Accounts","3 members","Aoife Nolan","core:approval:decide"],
-  ["Installers","9 members","Séamus Byrne","core:task:update"],
-  ["Trade counter","6 members","Niamh Cronin","core:person:view"],
-  ["Management","2 members","Martin Kilbride","all core permissions"]
+  ["Hosting","1 member","Patrick Parsons","bookings:view, quotes:approve"],
+  ["Culinary","2 members","Tina Ramirez","operations:prep"],
+  ["Experience delivery","2 members","Conrad Bailey","operations:prep"],
+  ["Sales & marketing","2 mock roles","Patrick Parsons","sales:view, marketing:draft"]
 ];
 const LOCATIONS = [
-  ["Head office","Little Island, Cork","14 staff","active"],
-  ["Ballincollig depot","Ballincollig, Cork","14 staff","lease review"],
-  ["Mallow yard","Mallow, Cork","4 staff","active"]
+  ["Birr Castle","Birr, Co. Offaly","Private hospitality","active"],
+  ["Lough Derg","Optional activity","Fishing, subject to confirmation","price on enquiry"],
+  ["Local golf","Optional activity","Subject to availability","price on enquiry"]
 ];
 
 const AGENT_DEFS = [
-  {id:"close", name:"Month-end close", shape:"rim-capsule", tint:"#1b2430", state:"working", group:true,
-   members:["credit","briefing","ops"], role:"Credit Control, Briefing and Ops Watchdog working the same close",
-   when:"09:12", preview:"credit control: three accounts still open.",
+  {id:"fill", name:"Fortnight fill", shape:"rim-capsule", tint:"#2a1216", state:"working", group:true,
+   members:["briefing","booking","revenue"], role:"Briefing, Booking Coordinator and Revenue Analyst working the 9 to 22 Nov gaps",
+   when:"09:12", preview:"booking coordinator: 20 Nov needs a decision.",
    thread:[
      {kind:"stamp", text:"Today 09:04"},
-     {kind:"routine", text:"Ran routine", routine:"Month-end close"},
-     {kind:"agent", from:"credit", text:"three accounts are still open on the August ledger. Dunne & Sons is the only one that changed behaviour rather than just running late."},
-     {kind:"agent", from:"ops", text:"nothing technical is holding it up — the Xero token is back and all 148 queued invoices posted at 09:02."},
-     {kind:"agent", from:"briefing", text:"so the close is one decision, not three: what to do about Dunne. everything else reconciles."},
-     {kind:"user", text:"instalments, two payments to end of september"},
-     {kind:"agent", from:"credit", text:"drafted on those terms and parked it. sending is a write tool, so it waits for your yes."},
-     {kind:"agent", from:"briefing", text:"once that goes, August closes. i'll put the confirmation in tomorrow's briefing."}
+     {kind:"routine", text:"Ran routine", routine:"Fortnight capacity review"},
+     {kind:"agent", from:"booking", text:"ten of sixteen slots are still open. the 20 November 12:30 slot has two tentative requests on it."},
+     {kind:"agent", from:"revenue", text:"filling the open slots at the demo average would add roughly €1,800 to €2,100 per booking. confirmed value today is €10,920."},
+     {kind:"agent", from:"briefing", text:"so it is one decision: keep Avery Brooks on 12:30 and move Fiona Greene to the 15:00 whiskey session."},
+     {kind:"user", text:"do that, draft only"},
+     {kind:"agent", from:"booking", text:"drafted both messages. sending needs your approval."}
    ]},
-  {id:"briefing", name:"Briefing", shape:"crown-pebble", tint:"#191c1f", state:"complete", role:"Reads the whole business every morning and tells you the two things that matter",
-   when:"08:02", preview:"three things moved overnight. two need you.",
+  {id:"briefing", name:"Briefing", shape:"crown-pebble", tint:"#191c1f", state:"complete", role:"Reads the whole business every morning and tells you what matters",
+   when:"08:02", preview:"six bookings, ten open slots, one conflict.",
    thread:[
      {kind:"stamp", text:"Today 08:00"},
      {kind:"routine", text:"Ran routine", routine:"Morning briefing"},
      {kind:"agent", text:"morning briefing:", lines:[
-       {k:"Cash", v:"€41.2k past 60 days · Dunne & Sons is 74 days"},
-       {k:"Work", v:"11 tasks late · 7 of them at Ballincollig"},
-       {k:"Approvals", v:"PO-4471 sitting with you since 08:54"}]},
-     {kind:"agent", text:"two things need you today: the purchase order, and a yes/no on the Ballincollig lease. everything else is covered."},
-     {kind:"user", text:"put the lease on Thursday"},
-     {kind:"agent", text:"done — task created against Ballincollig depot, due Thursday, assigned to you. i'll remind you Wednesday afternoon."}
+       {k:"Bookings", v:"6 confirmed · 99 guests · €10,920"},
+       {k:"Capacity", v:"10 of 16 slots unfilled (9 to 22 Nov)"},
+       {k:"Conflict", v:"E-2011 and E-2015 both want Fri 20 Nov 12:30"},
+       {k:"Prep", v:"Chen Family: 2 dietary requirements to confirm"}]},
+     {kind:"agent", text:"two things need you today: the 20 November slot, and the Chen Family dietary details."},
+     {kind:"user", text:"remind me monday about Avery"},
+     {kind:"agent", text:"done. task created for Monday 9 November against E-2011."}
    ]},
-  {id:"credit", name:"Credit Control", shape:"executive-capsule", tint:"#2a2118", state:"waiting", role:"Watches payment behaviour and drafts the chase before you ask",
-   when:"Yesterday", preview:"three drafts parked. nothing sent.",
+  {id:"ops", name:"Ops Watchdog", shape:"shield", tint:"#2b1b1e", state:"attention", role:"Watches booking conflicts, preparation gaps, dietary details and arrivals",
+   when:"08:40", preview:"chen family dietary details still unconfirmed.",
+   thread:[
+     {kind:"stamp", text:"Today 08:40"},
+     {kind:"agent", text:"B-1043 Chen Family Reunion is 6 of 10 prepared. two dietary requirements are unconfirmed and the Mandarin welcome note is not drafted."},
+     {kind:"user", text:"who owns dietary"},
+     {kind:"agent", text:"Tina Ramirez on the culinary side. i have not messaged anyone."}
+   ]},
+  {id:"lead", name:"Lead Concierge", shape:"executive-capsule", tint:"#2a2118", state:"waiting", role:"Organises enquiries, suggests replies, classifies interest and proposes qualification questions",
+   when:"Yesterday", preview:"three new enquiries sorted. replies drafted, nothing sent.",
    thread:[
      {kind:"stamp", text:"Yesterday 16:40"},
-     {kind:"agent", text:"three accounts changed behaviour this week. i've drafted a chase for each and parked them — sending is a write tool, so they wait for you."},
-     {kind:"user", text:"what changed on dunne"},
-     {kind:"agent", text:"days-to-pay went 12 → 74 since May while order volume held steady. that pattern is a cash problem, not a dispute. i'd offer two instalments to 30 September before putting them on stop again."}
+     {kind:"agent", text:"three new enquiries: O'Rourke Family (tea, 10), Harris Family (tea, 10), Sino-Irish Summer Academy (programme concept, unpriced). qualification questions are drafted for each."},
+     {kind:"user", text:"what do we ask the academy"},
+     {kind:"agent", text:"group size, ages, accommodation, dates and budget. it stays a concept until those are known."}
    ]},
-  {id:"visits", name:"Visit Scout", shape:"low-dome", tint:"#241b2e", state:"working", role:"Keeps the site-visit board honest and chases unassigned work",
-   when:"Yesterday", preview:"thursday's depot check still has nobody on it.",
+  {id:"booking", name:"Booking Coordinator", shape:"low-dome", tint:"#241b2e", state:"working", role:"Suggests slots, builds booking summaries, spots conflicts and prepares confirmations",
+   when:"09:02", preview:"conflict on fri 20 nov 12:30.",
    thread:[
-     {kind:"stamp", text:"Yesterday 07:00"},
-     {kind:"agent", text:"four visits booked this week, one unassigned: Thursday 09:00 depot stock check. Séamus is the only installer free that morning."},
-     {kind:"user", text:"give it to séamus"},
-     {kind:"agent", text:"assigned. the module fired site-visits.visit.updated and the escalation automation stood down."}
+     {kind:"stamp", text:"Today 09:02"},
+     {kind:"agent", text:"two tentative requests share Fri 20 Nov 12:30: Avery Brooks (E-2011, 16 tea guests, €2,080) and Fiona Greene (E-2015, 12 whiskey guests, €960). nothing is double-booked."},
+     {kind:"agent", text:"suggestion: Fiona to 15:00 on the same day or Tue 17 Nov 15:00."}
    ]},
-  {id:"stock", name:"Stock Watch", shape:"control-cube", tint:"#16241f", state:"thinking", role:"Reorder points, supplier lead times and what Thursday's jobs actually need",
-   when:"Mon", preview:"two lines below reorder point before thursday.",
+  {id:"audience", name:"Audience Strategist", shape:"control-cube", tint:"#16241f", state:"thinking", role:"Reads lead sources and suggests Ireland, US and Chinese market opportunities",
+   when:"Mon", preview:"seven of eighteen enquiries came through agents.",
    thread:[
      {kind:"stamp", text:"Monday 11:20"},
-     {kind:"agent", text:"two lines drop below reorder point before Thursday's jobs. Munster can cover both at the June agreement price — that's what PO-4471 is."}
+     {kind:"agent", text:"agents drove 7 of 18 enquiries, organic and direct 5, referrals 4, social 2 (synthetic). the gap is direct US and Mandarin-language reach."}
    ]},
-  {id:"ops", name:"Ops Watchdog", shape:"shield", tint:"#2b1b1e", state:"attention", role:"Sits on the event queue and tells you when something stopped working",
-   when:"02:16", preview:"xero token expired. 148 invoices queued, nothing lost.",
+  {id:"guest", name:"Guest Care", shape:"offset-pebble", tint:"#191c1f", state:"working", role:"Prepares welcome notes, feedback requests, referral follow-ups and bilingual drafts",
+   when:"Yesterday", preview:"ashford feedback request awaiting approval.",
    thread:[
-     {kind:"stamp", text:"Today 02:16"},
-     {kind:"agent", text:"the Xero connection failed at 02:14 — invalid_grant, token last authorised 27 February. 148 invoices are queued and post on reconnect. third time this year; move it to the service account."}
+     {kind:"stamp", text:"Yesterday 17:30"},
+     {kind:"agent", text:"B-1035 Ashford Travel Group (completed 22 Oct, 12 guests, €1,560): feedback request is ready and a referral invitation is drafted. neither is sent."},
+     {kind:"user", text:"and the chen welcome"},
+     {kind:"agent", text:"English and Mandarin drafts are ready. i recommend a bilingual review before it goes."}
    ]},
-  {id:"counter", name:"Counter Assistant", shape:"offset-pebble", tint:"#191c1f", state:"working", role:"Answers trade-counter questions on price, stock and account status",
-   when:"Fri", preview:"14 questions answered, 2 handed to niamh.",
+  {id:"partner", name:"Partner Outreach", shape:"crown-pebble", tint:"#1b2430", state:"waiting", role:"Tracks agent opportunities, prepares follow-ups and flags inactive partners",
+   when:"Today", preview:"boston heritage follow-up is due.",
    thread:[
-     {kind:"stamp", text:"Friday 17:30"},
-     {kind:"agent", text:"14 counter questions answered this week. two went to Niamh: both were credit-limit calls, which i won't make on my own."}
+     {kind:"stamp", text:"Today 07:30"},
+     {kind:"agent", text:"Boston Heritage Travel (E-2014, 18 guests, €2,340): proposal sent 30 October, no reply. follow-up drafted."},
+     {kind:"agent", text:"Shamrock DMC (E-2010) went quiet after two follow-ups and is marked lost."}
+   ]},
+  {id:"revenue", name:"Revenue Analyst", shape:"low-dome", tint:"#2a2118", state:"complete", role:"Tracks quoted and confirmed value, utilisation, upsells and forecast scenarios",
+   when:"Mon", preview:"€10,920 confirmed, €12,100 priced pipeline.",
+   thread:[
+     {kind:"stamp", text:"Monday 08:15"},
+     {kind:"agent", text:"confirmed €10,920 (tea €7,800, whiskey €3,120). priced open pipeline €12,100. the programme concept is unpriced and excluded. targets of 6 to 8 bookings a week are goals, not current performance."}
    ]}
 ];
 
 const KPI_DEFS = {
-  revenue:{label:"Revenue", value:"€412,800", delta:"+6.2%", dir:"up", hint:"30 days", hero:true},
-  cash:{label:"Cash collected", value:"€368,140", delta:"+4.1%", dir:"up", hint:"30 days"},
-  overdue:{label:"Overdue debt", value:"€41,200", delta:"+€8,410", dir:"down", hint:"60 days+"},
-  margin:{label:"Gross margin", value:"31.4%", delta:"−0.6pt", dir:"down", hint:"vs last month"},
-  jobs:{label:"Jobs completed", value:"126", delta:"+4", dir:"up", hint:"30 days"},
-  nps:{label:"Repeat rate", value:"68%", delta:"+3pt", dir:"up", hint:"customers ordering again"},
-  pipeline:{label:"Open pipeline", value:"€212,400", delta:"+11%", dir:"up", hint:"quoted, not won"},
-  utilisation:{label:"Installer hours", value:"84%", delta:"−2pt", dir:"down", hint:"billable share"}
+  revenue:{label:"Confirmed booking value", value:"€10,920", delta:"6 bookings", dir:"up", hint:"9 to 22 Nov, quoted", hero:true},
+  cash:{label:"Guests confirmed", value:"99", delta:"+14", dir:"up", hint:"Chen Family added"},
+  overdue:{label:"Unfilled slots", value:"10 of 16", delta:"37.5% used", dir:"down", hint:"9 to 22 Nov"},
+  margin:{label:"Enquiry to booking", value:"33.3%", delta:"6 of 18", dir:"up", hint:"30 days"},
+  jobs:{label:"Open enquiries", value:"8", delta:"€12,100", dir:"up", hint:"priced pipeline"},
+  nps:{label:"Direct enquiries", value:"11 of 18", delta:"agents 7", dir:"up", hint:"illustrative"},
+  pipeline:{label:"Priced pipeline", value:"€12,100", delta:"7 priced", dir:"up", hint:"excl. programme concept"},
+  utilisation:{label:"Prep complete", value:"29%", delta:"Chen 6/10", dir:"down", hint:"confirmed events"}
 };
 
 const ASPECT_DEFS = [
-  {id:"sales", label:"Sales", color:"var(--accent)", owner:"NIAMH CRONIN", description:"Counter, trade accounts and quotes out the door.",
-   kind:"columns", chartTitle:"Revenue by month", chartUnit:"EUR",
-   chart:[["Sep",288,"€0k"],["Oct",301,"€0k"],["Nov",352,"€0k"],["Dec",376,"€0k"],["Jan",268,"€0k"],["Feb",294,"€0k"],["Mar",318,"€0k"],["Apr",341,"€0k"],["May",362,"€0k"],["Jun",384,"€0k"],["Jul",398,"€0k"],["Aug",413,"€0k"]],
-   splitTitle:"Where it came from",
-   split:[["Trade counter","€214.6k","72%",1],["Contract accounts","€156.8k","53%",0],["Online orders","€41.4k","18%",0]],
-   tableCols:["Account","Revenue","Change","Owner"],
-   table:[["Casey Builders","€48,210","+12.4%","Niamh Cronin"],["Dunne & Sons Ltd","€28,410","−18.2%","Aoife Nolan"],["Fitzgerald Heating","€21,860","+4.1%","Niamh Cronin"],["Riverside Developments","€18,240","+9.6%","Tom Walsh"]],
-   metrics:[["Revenue","€412,800","+6.2%","up","30 days",[.4,.55,.44,.62,.5,.7,.6,.78,1]],
-     ["Orders","318","+22","up","30 days",[.5,.6,.44,.7,.55,.75,.62,.8,.9]],
-     ["Average order","€1,298","+1.8%","up","vs last month",[.6,.58,.62,.6,.66,.64,.7,.68,.74]],
-     ["Quotes won","41%","−3pt","down","conversion",[.7,.66,.7,.6,.62,.55,.58,.5,.48]]]},
-  {id:"development", label:"Development", color:"#9fd6f0", owner:"TOM WALSH", description:"Modules shipped into the client build and what they contributed.",
-   kind:"rows", rows:[["approval routing","412 runs",412],["overdue reminder","308 runs",308],["visit escalation","286 runs",286],["xero sync","198 runs",198],["briefing job","80 runs",80]], chartTitle:"Runs by automation", chartUnit:"RUNS · 30 DAYS",
-   chart:[["Sep",620,"620"],["Oct",684,"684"],["Nov",712,"712"],["Dec",760,"760"],["Jan",802,"802"],["Feb",864,"864"],["Mar",918,"918"],["Apr",986,"986"],["May",1042,"1042"],["Jun",1128,"1128"],["Jul",1204,"1204"],["Aug",1284,"1284"]],
-   splitTitle:"Runs by module",
-   split:[["core","1,042","81%",1],["site-visits","198","15%",0],["ui-showcase","44","4%",0]],
-   tableCols:["Module","Version","Contributions","State"],
-   table:[["core","0.1.0","31 routes · 21 events","always installed"],["site-visits","1.0.0","1 entity · 2 tools","installed"],["ui-showcase","0.1.0","3 pages","installed"],["wholesale","—","6 entities · 9 tools","available"]],
-   metrics:[["Modules live","3","+1","up","this quarter",[.2,.2,.4,.4,.4,.6,.6,.6,1]],
-     ["Helios tools","11","+2","up","registered",[.4,.44,.5,.5,.6,.6,.7,.8,.9]],
-     ["Automation runs","1,284","+9%","up","30 days",[.5,.55,.6,.58,.66,.7,.72,.8,.86]],
-     ["Failure rate","0.9%","−0.4pt","up","of all runs",[.8,.74,.7,.62,.6,.5,.44,.4,.32]]]},
-  {id:"marketing", label:"Marketing", color:"#e6c78a", owner:"AOIFE NOLAN", description:"Reach, enquiries and what turned into an account.",
-   kind:"funnel", funnel:[["Enquiries","184","—",184],["Quoted","96","52% of enquiries",96],["Won","39","41% of quotes",39],["Repeat order","12","31% of wins",12]], chartTitle:"Enquiry to repeat order", chartUnit:"CONVERSION",
-   chart:[["Sep",96,"96"],["Oct",104,"104"],["Nov",88,"88"],["Dec",112,"112"],["Jan",124,"124"],["Feb",118,"118"],["Mar",136,"136"],["Apr",142,"142"],["May",151,"151"],["Jun",164,"164"],["Jul",172,"172"],["Aug",184,"184"]],
-   splitTitle:"Where they came from",
-   split:[["Referral","78","42%",1],["Search","61","33%",0],["Trade shows","29","16%",0],["Direct","16","9%",0]],
-   tableCols:["Channel","Enquiries","Change","Cost each"],
-   table:[["Referral","78","+18.2%","€0.00"],["Search","61","+9.4%","€24.60"],["Trade shows","29","−6.1%","€41.20"],["Direct","16","+2.0%","€0.00"]],
-   metrics:[["Enquiries","184","+31","up","30 days",[.3,.4,.36,.5,.46,.6,.58,.7,.86]],
-     ["New accounts","12","+4","up","opened",[.2,.3,.24,.4,.36,.5,.44,.6,.7]],
-     ["Cost per enquiry","€18.40","−€2.10","up","blended",[.8,.76,.7,.66,.6,.56,.5,.46,.4]],
-     ["Repeat rate","68%","+3pt","up","ordering again",[.5,.54,.58,.56,.62,.64,.66,.7,.74]]]},
-  {id:"operations", label:"Operations", color:"#dcded6", owner:"SÉAMUS BYRNE", description:"Installers, vans, site visits and the work queue.",
-   kind:"stacked", legend:["Head office","Ballincollig depot","Mallow yard"], stacked:[["Sep",[34,28,9]],["Oct",[36,30,9]],["Nov",[39,32,10]],["Dec",[37,31,10]],["Jan",[32,27,8]],["Feb",[35,29,9]],["Mar",[40,33,10]],["Apr",[43,35,11]],["May",[46,37,12]],["Jun",[49,39,12]],["Jul",[52,42,13]],["Aug",[64,48,14]]], chartTitle:"Jobs completed by month", chartUnit:"JOBS",
-   chart:[["Sep",88,"88"],["Oct",94,"94"],["Nov",102,"102"],["Dec",96,"96"],["Jan",84,"84"],["Feb",91,"91"],["Mar",104,"104"],["Apr",112,"112"],["May",118,"118"],["Jun",121,"121"],["Jul",124,"124"],["Aug",126,"126"]],
-   splitTitle:"By location",
-   split:[["Head office","64","51%",1],["Ballincollig depot","48","38%",0],["Mallow yard","14","11%",0]],
-   tableCols:["Installer","Jobs","On time","Location"],
-   table:[["Séamus Byrne","41","94%","Ballincollig"],["Tom Walsh","34","88%","Head office"],["Niamh Cronin","28","96%","Head office"],["Unassigned","4","—","Ballincollig"]],
-   metrics:[["Jobs completed","126","+4","up","30 days",[.5,.6,.5,.66,.6,.7,.66,.76,.84]],
-     ["Overdue tasks","11","+3","down","past due",[.3,.36,.3,.44,.4,.5,.56,.7,.85]],
-     ["Visits completed","38","+11%","up","30 days",[.4,.5,.6,.5,.66,.6,.72,.8,.9]],
-     ["Installer hours","84%","−2pt","down","billable",[.8,.78,.8,.76,.78,.74,.76,.72,.7]]]},
-  {id:"finance", label:"Finance", color:"#7fd8a4", owner:"AOIFE NOLAN", description:"Cash in, debt ageing and margin after cost.",
-   kind:"area", chartTitle:"Cash collected by month", chartUnit:"EUR",
-   chart:[["Sep",252,"€0k"],["Oct",268,"€0k"],["Nov",296,"€0k"],["Dec",318,"€0k"],["Jan",246,"€0k"],["Feb",264,"€0k"],["Mar",288,"€0k"],["Apr",306,"€0k"],["May",324,"€0k"],["Jun",342,"€0k"],["Jul",358,"€0k"],["Aug",368,"€0k"]],
-   splitTitle:"Debt by age",
-   split:[["0–30 days","€184.2k","61%",1],["31–60 days","€82.4k","27%",0],["61–90 days","€28.6k","9%",0],["90 days plus","€12.6k","4%",0]],
-   tableCols:["Account","Balance","Change","Oldest"],
-   table:[["Dunne & Sons Ltd","€28,410","+42.0%","74 days"],["Fitzgerald Heating","€9,240","+11.2%","63 days"],["Riverside Developments","€3,560","−4.4%","61 days"],["Glanmire Mechanical","€1,180","−22.0%","8 days"]],
-   metrics:[["Cash collected","€368,140","+4.1%","up","30 days",[.5,.56,.5,.62,.58,.68,.66,.74,.8]],
-     ["Overdue debt","€41,200","+€8,410","down","60 days plus",[.3,.34,.4,.38,.46,.5,.6,.7,.84]],
-     ["Gross margin","31.4%","−0.6pt","down","vs last month",[.7,.72,.7,.68,.68,.66,.64,.62,.6]],
-     ["Days to pay","38","+6","down","weighted",[.4,.44,.42,.5,.52,.6,.62,.7,.76]]]},
-  {id:"support", label:"Support", color:"#e2705c", owner:"NIAMH CRONIN", description:"Callbacks, warranty work and what came back twice.",
-   kind:"dots", target:12, targetLabel:"Target: 12 callbacks a month or fewer", chartTitle:"Callbacks by month", chartUnit:"COUNT",
-   chart:[["Sep",18,"18"],["Oct",16,"16"],["Nov",21,"21"],["Dec",19,"19"],["Jan",24,"24"],["Feb",22,"22"],["Mar",17,"17"],["Apr",15,"15"],["May",14,"14"],["Jun",12,"12"],["Jul",9,"9"],["Aug",7,"7"]],
-   splitTitle:"By cause",
-   split:[["Install fault","3","43%",1],["Part failure","2","29%",0],["User error","2","28%",0]],
-   tableCols:["Site","Callbacks","First-visit fix","Cost"],
-   table:[["Ó Riain, Glanmire","2","50%","€840"],["Casey Builders","2","100%","€410"],["Fitzgerald Heating","2","100%","€1,240"],["Kelleher, Cobh","1","100%","€650"]],
-   metrics:[["Open callbacks","7","−2","up","live",[.6,.58,.54,.5,.48,.44,.4,.38,.34]],
-     ["First-visit fix","82%","+4pt","up","of callbacks",[.5,.54,.56,.6,.6,.66,.7,.74,.8]],
-     ["Warranty cost","€3,140","−€420","up","30 days",[.7,.66,.62,.6,.54,.5,.46,.44,.4]],
-     ["Repeat faults","3","−1","up","same site",[.5,.5,.46,.4,.4,.36,.3,.3,.26]]]}
+  {id:"executive", label:"Executive", color:"var(--accent)", owner:"PATRICK PARSONS", description:"Confirmed bookings, pipeline and forward capacity at a glance. Demo data.",
+   kind:"columns", chartTitle:"Confirmed booking value by week", chartUnit:"EUR",
+   chart:[["9 Nov",1560,"€1.6k"],["10 Nov",2080,"€2.1k"],["12 Nov",1820,"€1.8k"],["13 Nov",2340,"€2.3k"],["16 Nov",1600,"€1.6k"],["19 Nov",1520,"€1.5k"],["20 Nov",0,"€0"],["23 Nov",0,"€0"]],
+   splitTitle:"Slots, 9 to 22 Nov",
+   split:[["Confirmed","6","37.5%",1],["Unfilled","10","62.5%",0]],
+   tableCols:["Ref","Client","Date","Value"],
+   table:[["B-1041","Sarah Mitchell Group","9 Nov","€1,560"],["B-1042","Emerald Corporate Group","10 Nov","€2,080"],["B-1043","Chen Family Reunion","12 Nov","€1,820"],["B-1044","Harper Ireland Journey","13 Nov","€2,340"],["B-1045","Dublin Cultural Society","16 Nov","€1,600"],["B-1046","Pacific Heritage Travel","19 Nov","€1,520"]],
+   metrics:[["Confirmed value","€10,920","6 bookings","up","quoted",[.3,.4,.5,.6,.7,.8,.9,.95,1]],
+     ["Priced pipeline","€12,100","7 priced","up","open",[.4,.5,.45,.6,.55,.7,.65,.8,.85]],
+     ["Guests","99","6 groups","up","confirmed",[.3,.4,.5,.55,.6,.7,.78,.9,1]],
+     ["Utilisation","37.5%","6 of 16","down","slots",[.4,.4,.42,.4,.38,.4,.38,.38,.375]]]},
+  {id:"sales", label:"Sales Funnel", color:"#e6c78a", owner:"SALES & PARTNERSHIPS (MOCK)", description:"Where the 18 enquiries came from and how many became bookings. Synthetic.",
+   kind:"funnel", funnel:[["Enquiries","18","30 days",18],["Qualified or beyond","14","78%",14],["Proposal sent","9","50%",9],["Confirmed","6","33.3% of enquiries",6]], chartTitle:"Enquiries by source", chartUnit:"COUNT",
+   chart:[["Agents",7,"7"],["Organic",5,"5"],["Referral",4,"4"],["Social",2,"2"]],
+   splitTitle:"Direct vs agent",
+   split:[["Direct channels","11","61%",1],["Travel agents","7","39%",0]],
+   tableCols:["Source","Enquiries","Booked","Lost"],
+   table:[["Travel agents","7","2","2"],["Organic / direct","5","2","1"],["Referral","4","2","0"],["Social","2","0","1"]],
+   metrics:[["Enquiries","18","30 days","up","all sources",[.3,.4,.5,.6,.6,.7,.8,.9,1]],
+     ["Open","8","€12,100","up","priced",[.5,.5,.6,.6,.7,.7,.8,.8,.85]],
+     ["Conversion","33.3%","6 of 18","up","enquiry to booking",[.4,.45,.5,.5,.55,.6,.6,.65,.7]],
+     ["Lost","4","closed","down","no booking",[.5,.5,.45,.5,.45,.4,.4,.4,.4]]]},
+  {id:"occupancy", label:"Occupancy", color:"#9fd6f0", owner:"PATRICK PARSONS", description:"Bookable slots, confirmed slots and the forward gaps. Demo assumption: Mon, Tue, Thu, Fri, two sessions.",
+   kind:"stacked", legend:["Confirmed","Unfilled"], stacked:[["9 Nov",[1,1]],["10 Nov",[1,1]],["12 Nov",[1,1]],["13 Nov",[1,1]],["16 Nov",[1,1]],["17 Nov",[0,2]],["19 Nov",[1,1]],["20 Nov",[0,2]]], chartTitle:"Slots by day",
+   chart:[["Mon",2,"2"],["Tue",1,"1"],["Thu",2,"2"],["Fri",1,"1"]],
+   splitTitle:"By experience",
+   split:[["Afternoon Tea","4","67%",1],["Whiskey Tasting","2","33%",0]],
+   tableCols:["Gap","Session","Note"],
+   table:[["Tue 17 Nov","12:30 and 15:00","Both open"],["Fri 20 Nov","12:30","Contested E-2011 / E-2015"],["Fri 20 Nov","15:00","Open"],["Thu 12 Nov","15:00","Open"]],
+   metrics:[["Bookable","16","9 to 22 Nov","up","slots",[.5,.5,.5,.5,.5,.5,.5,.5,.5]],
+     ["Confirmed","6","slots","up","booked",[.2,.3,.4,.5,.55,.6,.7,.8,.9]],
+     ["Unfilled","10","slots","down","open",[.9,.8,.7,.7,.65,.6,.6,.6,.6]],
+     ["Utilisation","37.5%","6 of 16","up","of slots",[.2,.25,.3,.32,.34,.36,.37,.375,.375]]]},
+  {id:"revenue", label:"Revenue", color:"#7fd8a4", owner:"REVENUE ANALYST", description:"Confirmed booking value, priced pipeline and scenarios. Projections are not results.",
+   kind:"area", chartTitle:"Cumulative confirmed value", chartUnit:"EUR",
+   chart:[["9 Nov",1560,"€1.6k"],["10 Nov",3640,"€3.6k"],["12 Nov",5460,"€5.5k"],["13 Nov",7800,"€7.8k"],["16 Nov",9400,"€9.4k"],["19 Nov",10920,"€10.9k"]],
+   splitTitle:"By experience",
+   split:[["Afternoon Tea","€7,800","71%",1],["Whiskey Tasting","€3,120","29%",0]],
+   tableCols:["Scenario","Bookings","Value","Basis"],
+   table:[["Confirmed","6","€10,920","Booked"],["Plus priced pipeline","13","€23,020","Hypothetical"],["Fill 8 open slots at average","14","about €25,000","Projection"]],
+   metrics:[["Tea value","€7,800","60 guests","up","confirmed",[.3,.4,.5,.6,.7,.8,.9,.95,1]],
+     ["Whiskey value","€3,120","39 guests","up","confirmed",[.2,.3,.4,.5,.6,.7,.8,.9,1]],
+     ["Average booking","€1,820","per booking","up","confirmed",[.6,.6,.62,.6,.64,.62,.66,.64,.65]],
+     ["Priced pipeline","€12,100","7 open","up","not confirmed",[.4,.5,.45,.6,.55,.7,.65,.8,.85]]]},
+  {id:"guest", label:"Guest Experience", color:"#e2705c", owner:"GUEST EXPERIENCE (MOCK)", description:"Preparation, guest communications, dietary requests and the feedback and referral workflow.",
+   kind:"rows", rows:[["B-1041 Sarah Mitchell","8 of 10",80],["B-1042 Emerald Corporate","6 of 10",60],["B-1043 Chen Family","6 of 10",60],["B-1044 Harper Ireland","3 of 10",30],["B-1045 Dublin Cultural","2 of 10",20],["B-1046 Pacific Heritage","1 of 10",10]], chartTitle:"Preparation by booking", chartUnit:"COUNT",
+   chart:[["B-1041",8,"8"],["B-1042",6,"6"],["B-1043",6,"6"],["B-1044",3,"3"],["B-1045",2,"2"],["B-1046",1,"1"]],
+   splitTitle:"Post-visit workflow",
+   split:[["Feedback awaiting approval","1","B-1035",1],["Referral drafted, not sent","1","B-1035",0]],
+   tableCols:["Item","Booking","Status","Owner"],
+   table:[["Dietary requirements (2)","B-1043","Unconfirmed","Tina Ramirez"],["Mandarin welcome note","B-1043","Not drafted","Patrick Parsons"],["Feedback request","B-1035","Awaiting approval","Guest Care"],["Referral invitation","B-1035","Draft only","Patrick Parsons"]],
+   metrics:[["Prep complete","26 of 60","items","up","across 6 events",[.2,.25,.3,.35,.4,.42,.43,.43,.43]],
+     ["Dietary open","2","B-1043","down","to confirm",[.5,.5,.6,.6,.7,.7,.7,.7,.7]],
+     ["Feedback","1","pending","up","approval",[.2,.2,.2,.3,.3,.3,.4,.4,.4]],
+     ["Referrals","1","drafted","up","not sent",[.1,.1,.1,.2,.2,.2,.3,.3,.3]]]}
 ];
 
 const FILTER_GROUPS = [
-  {title:"AREA", items:["Sales","Development","Marketing","Operations","Finance","Support"]},
-  {title:"SPINE", items:["Location","Team","Person","Organisation","Module"]},
+  {title:"AREA", items:["Executive","Sales Funnel","Occupancy","Revenue","Guest Experience"]},
+  {title:"SPINE", items:["Experience","Team","Guest","Partner","Market"]},
   {title:"TIME", items:["This week","This month","This quarter","Year to date"]}
 ];
 
 const OPS_DEFS = [
-  {id:"o1", name:"Weekly management report", kind:"report", owner:"Chief of Staff", ownerKind:"agent", initials:"CS",
-   trigger:"Mon, 08:00", triggerKind:"schedule", next:"3 days", last:"Sent to 4 people", status:"healthy", rate:98, on:true,
-   what:"Pulls last week's numbers from every area, writes the commentary and sends one page to the management team before Monday's meeting.",
-   why:"The meeting used to start with twenty minutes of people reading numbers off their own screens.",
-   saved:"6 hours a month",
-   steps:[["Trigger","Every Monday at 08:00"],["Find","Last week's metrics across all six areas"],["Check","Flag anything moving more than 10%"],["Draft","Write the one-page commentary"],["Send","Email the management team"],["Update","File the report against the week"]],
-   runs:[["Mon 08:00","1m 12s","ok","4 recipients","€0.04"],["Mon 25 Aug 08:00","1m 04s","ok","4 recipients","€0.04"],["Mon 18 Aug 08:00","58s","ok","4 recipients","€0.03"]]},
-  {id:"o2", name:"Chase unpaid invoices", kind:"automation", owner:"Finance Agent", ownerKind:"agent", initials:"FA",
-   trigger:"Daily, 09:00", triggerKind:"schedule", next:"Tomorrow", last:"3 drafts waiting", status:"approval", rate:94, on:true,
-   what:"Finds invoices past 14 days, excludes anything disputed, drafts a reminder in your tone and parks it for the finance manager.",
-   why:"Chasing was happening in bursts, so the oldest debt got the least attention.",
-   saved:"11 hours a month",
-   steps:[["Trigger","Every weekday at 09:00"],["Find","Unpaid invoices older than 14 days"],["Check","Exclude disputed invoices"],["Draft","Create personalised reminders"],["Approval","Finance manager reviews","gate"],["Send","Email the customer"],["Update","Record the activity in Pulse"]],
-   runs:[["Today 09:00","42s","partial","3 of 7 drafted","€0.02","4 organisations have no billing email"],["Yesterday 09:00","51s","ok","6 sent","€0.03"],["Mon 09:00","47s","ok","5 sent","€0.03"]]},
-  {id:"o3", name:"New enquiry follow-up", kind:"automation", owner:"Sales Agent", ownerKind:"agent", initials:"SA",
-   trigger:"New lead created", triggerKind:"event", next:"Event-based", last:"11 followed up today", status:"healthy", rate:99, on:true,
-   what:"Answers a new enquiry within minutes, asks the two questions the counter always needs, and creates the quote task.",
-   why:"Enquiries arriving after 5pm were sitting until the next morning.",
-   saved:"14 hours a month",
-   steps:[["Trigger","A lead is created in Pulse"],["Find","Match against existing organisations"],["Draft","Write the first reply"],["Send","Email the enquiry"],["Update","Create a quote task for the counter"]],
-   runs:[["Today 16:20","6s","ok","1 lead","€0.01"],["Today 15:02","7s","ok","1 lead","€0.01"],["Today 11:48","6s","ok","1 lead","€0.01"]]},
-  {id:"o4", name:"Certificate renewal reminder", kind:"routine", owner:"Operations", ownerKind:"person", initials:"TW",
-   trigger:"60 days before expiry", triggerKind:"event", next:"14:20", last:"Failed — missing contact", status:"failed", rate:71, on:true,
-   what:"Watches every installer certificate and insurance document, and gives sixty days' notice before one lapses.",
-   why:"A lapsed certificate stopped two jobs last year.",
-   saved:"3 hours a month",
-   steps:[["Trigger","60 days before a document expires"],["Find","The owner of the certificate"],["Check","Has a renewal already been booked?"],["Send","Notify the owner and Operations"],["Update","Create the renewal task"]],
-   runs:[["Today 14:20","3s","failed","0 of 2","€0.00","No contact on file for Mallow yard"],["Yesterday 14:20","4s","failed","0 of 1","€0.00","No contact on file for Mallow yard"],["Fri 14:20","5s","ok","1 notified","€0.01"]]},
-  {id:"o5", name:"Morning briefing", kind:"routine", owner:"Briefing Agent", ownerKind:"agent", initials:"BR",
-   trigger:"Weekdays, 07:00", triggerKind:"schedule", next:"Tomorrow", last:"Delivered 07:02", status:"healthy", rate:100, on:true,
-   what:"Reads the whole business overnight and tells you the two things that actually need you.",
-   why:"You were opening six screens before your first coffee.",
-   saved:"9 hours a month",
-   steps:[["Trigger","Every weekday at 07:00"],["Find","Overnight changes across cash, work and approvals"],["Check","Drop anything already handled"],["Draft","Write the briefing"],["Send","Post to Home and WhatsApp"]],
-   runs:[["Today 07:00","22s","ok","1 briefing","€0.02"],["Yesterday 07:00","19s","ok","1 briefing","€0.02"],["Mon 07:00","24s","ok","1 briefing","€0.02"]]},
-  {id:"o6", name:"Weekly stock check", kind:"task", owner:"Stock Watch", ownerKind:"agent", initials:"SW",
-   trigger:"Thursdays, 09:00", triggerKind:"schedule", next:"Thu 09:00", last:"2 lines flagged", status:"healthy", rate:96, on:true,
-   what:"Compares reorder points against what the week's jobs need and raises the purchase order lines.",
-   why:"Two jobs were rescheduled in June for parts nobody had ordered.",
-   saved:"5 hours a month",
-   steps:[["Trigger","Every Thursday at 09:00"],["Find","Lines below reorder point"],["Check","What this week's jobs need"],["Approval","Buyer confirms the order","gate"],["Update","Raise the purchase order"]],
-   runs:[["Thu 09:00","31s","ok","2 lines","€0.02"],["Thu 21 Aug 09:00","28s","ok","1 line","€0.02"]]},
-  {id:"o7", name:"Xero invoice sync", kind:"automation", owner:"Ops Watchdog", ownerKind:"agent", initials:"OW",
-   trigger:"Hourly", triggerKind:"schedule", next:"Paused", last:"Token expired", status:"failed", rate:62, on:false,
-   what:"Posts every finalised invoice into Xero and reconciles what came back.",
-   why:"Manual re-entry was the single biggest source of mismatched invoices.",
-   saved:"18 hours a month",
-   steps:[["Trigger","Every hour"],["Find","Invoices not yet in Xero"],["Send","Post to Xero","external"],["Check","Reconcile what came back"],["Update","Mark them synced"]],
-   runs:[["Today 02:14","1.2s","failed","0 of 148","€0.00","invalid_grant: refresh token expired 27 February"],["Today 01:14","1.1s","failed","0 of 141","€0.00","invalid_grant: refresh token expired 27 February"],["Yesterday 23:14","4s","ok","12 posted","€0.01"]]},
-  {id:"o8", name:"Weekend on-call handover", kind:"routine", owner:"Chief of Staff", ownerKind:"agent", initials:"CS",
-   trigger:"Fri, 16:30", triggerKind:"schedule", next:"Fri 16:30", last:"Sent to 3 people", status:"healthy", rate:97, on:true,
-   what:"Writes the weekend handover: open jobs, who is on call, and anything a customer is waiting on.",
-   why:"Weekend calls were being answered by whoever picked up, with no context.",
-   saved:"4 hours a month",
-   steps:[["Trigger","Every Friday at 16:30"],["Find","Open jobs and unanswered customers"],["Draft","Write the handover note"],["Send","WhatsApp the on-call rota"]],
-   runs:[["Fri 16:30","18s","ok","3 recipients","€0.02"],["Fri 15 Aug 16:30","21s","ok","3 recipients","€0.02"]]},
-  {id:"o9", name:"Timesheet reminder", kind:"task", owner:"Operations", ownerKind:"person", initials:"TW",
-   trigger:"Fri, 15:00", triggerKind:"schedule", next:"Fri 15:00", last:"9 of 12 submitted", status:"approval", rate:88, on:true,
-   what:"Nudges anyone who has not filed hours, then sends Operations the list still outstanding.",
-   why:"Payroll was chasing the same four people every week.",
-   saved:"3 hours a month",
-   steps:[["Trigger","Every Friday at 15:00"],["Find","Staff with no hours filed"],["Send","Remind each person"],["Approval","Operations signs off the week","gate"]],
-   runs:[["Fri 15:00","12s","partial","9 of 12","€0.01"],["Fri 15 Aug 15:00","11s","ok","12 of 12","€0.01"]]},
-  {id:"o10", name:"Overnight backup check", kind:"automation", owner:"Ops Watchdog", ownerKind:"agent", initials:"OW",
-   trigger:"Daily, 03:00", triggerKind:"schedule", next:"Tonight", last:"All systems clean", status:"healthy", rate:100, on:true,
-   what:"Confirms every nightly backup completed and the restore test passed, and raises an alert if not.",
-   why:"A failed backup went unnoticed for eleven days in January.",
-   saved:"2 hours a month",
-   steps:[["Trigger","Every day at 03:00"],["Check","Every backup job completed"],["Check","Last restore test passed"],["Send","Alert only if something failed"]],
-   runs:[["Today 03:00","8s","ok","6 jobs","€0.00"],["Yesterday 03:00","9s","ok","6 jobs","€0.00"]]},
-  {id:"o11", name:"Month-end close pack", kind:"report", owner:"Finance Agent", ownerKind:"agent", initials:"FA",
-   trigger:"1st, 07:00", triggerKind:"schedule", next:"1 Sep 07:00", last:"Delivered 1 Aug", status:"healthy", rate:95, on:true,
-   what:"Assembles the close pack: aged debt, margin by area, cash position and the variance commentary.",
-   why:"Close took three days of copying between spreadsheets.",
-   saved:"16 hours a month",
-   steps:[["Trigger","First of the month at 07:00"],["Find","Last month's ledger and margin data"],["Check","Reconcile against the bank"],["Draft","Write the variance commentary"],["Send","Email the pack to Finance"]],
-   runs:[["1 Aug 07:00","3m 42s","ok","1 pack","€0.09"],["1 Jul 07:00","3m 51s","ok","1 pack","€0.09"]]}
+  {id:"o1", name:"Morning briefing", kind:"report", owner:"Briefing", ownerKind:"agent", initials:"BR",
+   trigger:"Weekdays, 07:00", triggerKind:"schedule", next:"Tomorrow", last:"Sent to Patrick", status:"healthy", rate:99, on:true,
+   what:"Summarises confirmed bookings, open slots, conflicts and preparation gaps into one page.",
+   why:"Patrick wants one central view without opening five tools.",
+   saved:"demo estimate",
+   steps:[["Trigger","Every weekday at 07:00"],["Find","Bookings, slots, enquiries"],["Check","Flag conflicts and prep gaps"],["Draft","Write the briefing"],["Send","Deliver to Patrick (draft only for external)"]],
+   runs:[["Today 07:00","14s","ok","1 recipient","mock"],["Yesterday 07:00","12s","ok","1 recipient","mock"]]},
+  {id:"o2", name:"Enquiry follow-up", kind:"automation", owner:"Lead Concierge", ownerKind:"agent", initials:"LC",
+   trigger:"New enquiry", triggerKind:"event", next:"Event-based", last:"3 drafts waiting", status:"approval", rate:96, on:true,
+   what:"Classifies a new enquiry, drafts a reply and the qualification questions, then parks it for approval.",
+   why:"Replies to enquiries should go out within hours, not days.",
+   saved:"demo estimate",
+   steps:[["Trigger","An enquiry arrives"],["Classify","Tea, whiskey or programme concept"],["Draft","First reply and qualification questions"],["Approval","Patrick reviews","gate"],["Send","Email the prospect"]],
+   runs:[["Today 09:10","6s","ok","3 drafted","mock"],["Yesterday 16:40","7s","ok","1 drafted","mock"]]},
+  {id:"o3", name:"Event preparation checklist", kind:"routine", owner:"Ops Watchdog", ownerKind:"agent", initials:"OW",
+   trigger:"Booking confirmed", triggerKind:"event", next:"Event-based", last:"B-1043 flagged", status:"healthy", rate:97, on:true,
+   what:"Creates the 10-point checklist for every confirmed booking and flags gaps 3 days before arrival.",
+   why:"Staff need advance visibility of every guest.",
+   saved:"demo estimate",
+   steps:[["Trigger","A booking is confirmed"],["Create","10-point checklist"],["Assign","Host and team"],["Check","Dietary and arrival time"],["Alert","Flag open items"]],
+   runs:[["Today 08:40","9s","ok","B-1043 flagged","mock"],["Yesterday 08:40","8s","ok","no gaps","mock"]]},
+  {id:"o4", name:"Post-visit feedback and referral", kind:"automation", owner:"Guest Care", ownerKind:"agent", initials:"GC",
+   trigger:"Experience completed", triggerKind:"event", next:"Event-based", last:"B-1035 awaiting approval", status:"approval", rate:92, on:true,
+   what:"Drafts a feedback request and a referral invitation after a completed experience.",
+   why:"Referrals and repeat business should be systematic.",
+   saved:"demo estimate",
+   steps:[["Trigger","Experience marked complete"],["Draft","Feedback request"],["Draft","Referral invitation"],["Approval","Patrick reviews","gate"],["Send","Email the guest"]],
+   runs:[["22 Oct 18:00","11s","ok","2 drafts","mock"]]}
 ];
 
 const OPS_FILTERS = [
@@ -876,53 +828,49 @@ const WORK_SECTIONS = [
 ];
 
 const WORK_TASKS = [
-  {id:"w1", title:"Chase INV-10428 — Dunne & Sons", status:"In progress", priority:"High", who:"AN",
-   due:"2d overdue", late:true, client:"Dunne & Sons Ltd", day:"Today", mins:"25 mins", view:"Due tasks"},
-  {id:"w2", title:"Reassign Van 04 jobs off Ballincollig", status:"In progress", priority:"High", who:"MK",
-   due:"Due today", late:false, client:"Ballincollig depot", day:"Today", mins:"50 mins", view:"Due tasks"},
-  {id:"w3", title:"Approve purchase order PO-4471", status:"Review", priority:"Medium", who:"MK",
-   due:"Due 12:00", late:false, client:"Munster Plumbing", day:"Today", mins:"15 mins", view:"Review"},
-  {id:"w4", title:"Sign off August counter stocktake", status:"Not started", priority:"Medium", who:"SB",
-   due:"No due date", late:false, client:"Head office", day:"Any day", mins:"Mins", view:"All tasks"},
-  {id:"w5", title:"Ballincollig lease decision", status:"Not started", priority:"High", who:"MK",
-   due:"Thursday", late:false, client:"Ballincollig depot", day:"Thu", mins:"1 hour", view:"All tasks"},
-  {id:"w6", title:"VAT return — August", status:"Done", priority:"Medium", who:"AN",
-   due:"Filed Friday", late:false, client:"Head office", day:"Fri", mins:"2 hours", view:"Done", done:true}
+  {id:"w1", title:"Follow up with Avery Brooks (E-2011)", status:"In progress", priority:"High", who:"PP", due:"Due Mon 9 Nov", late:false, client:"E-2011", day:"Today", mins:"30 mins", view:"Due tasks"},
+  {id:"w2", title:"Confirm Chen Family dietary details (B-1043)", status:"In progress", priority:"High", who:"TR", due:"Due today", late:false, client:"B-1043", day:"Today", mins:"30 mins", view:"Due tasks"},
+  {id:"w3", title:"Draft Mandarin welcome message (B-1043)", status:"Not started", priority:"High", who:"PP", due:"Due Mon 9 Nov", late:false, client:"B-1043", day:"Today", mins:"30 mins", view:"All tasks"},
+  {id:"w4", title:"Review Boston Heritage proposal (E-2014)", status:"Review", priority:"High", who:"SP", due:"Follow-up due today", late:false, client:"E-2014", day:"Today", mins:"30 mins", view:"Review"},
+  {id:"w5", title:"Resolve competing 20 November requests", status:"Not started", priority:"High", who:"PP", due:"Due Mon 9 Nov", late:false, client:"E-2011 / E-2015", day:"Today", mins:"30 mins", view:"All tasks"},
+  {id:"w6", title:"Prepare next week's guest programme", status:"Not started", priority:"Medium", who:"GE", due:"Due Fri", late:false, client:"B-1041 to B-1044", day:"Today", mins:"30 mins", view:"All tasks"},
+  {id:"w7", title:"Approve Stories of Birr content", status:"Review", priority:"Medium", who:"PP", due:"Due Mon 9 Nov", late:false, client:"Content Studio", day:"Today", mins:"30 mins", view:"Review"},
+  {id:"w8", title:"Review availability gaps (10 unfilled slots)", status:"Not started", priority:"Medium", who:"SP", due:"Due Fri", late:false, client:"Capacity", day:"Today", mins:"30 mins", view:"All tasks"}
 ];
 
 const WORKFLOWS = [
-  {name:"Overdue invoice reminder", state:"live", trigger:"schedule · daily 08:00",
-   actions:[["notify.email","write"],["tasks.create","write"]], lastRun:"Today 08:00",
-   result:"6 of 10 sent · partial", resultKind:"warn", runSummary:"11 ok · 3 partial",
-   runs:["ok","ok","partial","ok","ok","ok","partial","ok","ok","ok","ok","ok","partial","partial"]},
-  {name:"Approval routing over €10k", state:"live", trigger:"event · core.approval.created",
-   actions:[["approvals.route","read"],["notify.inbox","write"]], lastRun:"Today 08:54",
+  {name:"Morning briefing", state:"live", trigger:"schedule · weekdays 07:00",
+   actions:[["briefing.compose","read"],["notify.inbox","write"]], lastRun:"Today 07:00",
    result:"ok", resultKind:"ok", runSummary:"14 ok",
    runs:["ok","ok","ok","ok","ok","ok","ok","ok","ok","ok","ok","ok","ok","ok"]},
-  {name:"Unassigned visit escalation", state:"live", trigger:"event · site-visits.visit.created",
-   actions:[["notify.inbox","write"]], lastRun:"Today 07:00",
-   result:"ok", resultKind:"ok", runSummary:"9 ok · 1 failed",
-   runs:["idle","idle","ok","ok","failed","ok","ok","ok","idle","ok","ok","ok","ok","ok"]},
-  {name:"Xero invoice sync", state:"failing", trigger:"schedule · hourly",
-   actions:[["xero.post","external"]], lastRun:"Today 02:14",
-   result:"invalid_grant · dead-lettered", resultKind:"bad", runSummary:"4 failed",
-   runs:["ok","ok","ok","ok","ok","ok","ok","ok","ok","ok","failed","failed","failed","failed"]}
+  {name:"Enquiry follow-up", state:"live", trigger:"event · enquiry.created",
+   actions:[["enquiry.classify","read"],["email.draft","write"]], lastRun:"Today 09:10",
+   result:"3 drafts awaiting approval", resultKind:"warn", runSummary:"12 ok · 2 partial",
+   runs:["ok","ok","partial","ok","ok","ok","partial","ok","ok","ok","ok","ok","ok","ok"]},
+  {name:"Event preparation checklist", state:"live", trigger:"event · booking.confirmed",
+   actions:[["prep.create","write"],["notify.inbox","write"]], lastRun:"Today 08:40",
+   result:"ok", resultKind:"ok", runSummary:"6 ok",
+   runs:["idle","idle","ok","ok","ok","idle","ok","ok","ok","idle","ok","ok","ok","ok"]},
+  {name:"Website enquiry form sync", state:"failing", trigger:"not connected",
+   actions:[["website.form","external"]], lastRun:"Never",
+   result:"Integration planned. Demo only.", resultKind:"bad", runSummary:"not connected",
+   runs:["idle","idle","idle","idle","idle","idle","idle","idle","idle","idle","idle","idle","idle","idle"]}
 ];
 
 const SCHEDULES = [
-  {id:"s1", name:"Morning briefing", cadence:"Every weekday · 07:00", next:"Tomorrow 07:00", owner:"Briefing agent", on:true, day:1},
-  {id:"s2", name:"Overdue invoice reminder", cadence:"Daily · 08:00", next:"Tomorrow 08:00", owner:"Credit Control", on:true, day:1},
-  {id:"s3", name:"Xero invoice sync", cadence:"Hourly", next:"Paused", owner:"Ops Watchdog", on:false, day:0},
-  {id:"s4", name:"Weekly stock check", cadence:"Thursdays · 09:00", next:"Thu 09:00", owner:"Stock Watch", on:true, day:3},
-  {id:"s5", name:"Month-end close", cadence:"Last working day · 17:00", next:"Fri 17:00", owner:"Month-end close", on:true, day:4}
+  {id:"s1", name:"Morning briefing", cadence:"Every weekday · 07:00", next:"Mon 07:00", owner:"Briefing", on:true, day:1},
+  {id:"s2", name:"Enquiry follow-up review", cadence:"Daily · 09:00", next:"Mon 09:00", owner:"Lead Concierge", on:true, day:1},
+  {id:"s3", name:"Dietary confirmation check", cadence:"3 days before arrival", next:"Mon 9 Nov", owner:"Ops Watchdog", on:true, day:1},
+  {id:"s4", name:"Partner outreach round", cadence:"Thursdays · 10:00", next:"Thu 10:00", owner:"Partner Outreach", on:true, day:3},
+  {id:"s5", name:"Weekly revenue and capacity review", cadence:"Fridays · 16:00", next:"Fri 16:00", owner:"Revenue Analyst", on:true, day:4}
 ];
 
-const WIDGET_DEFS = [["inbox","Action inbox"],["work","My work"],["activity","Activity"],["kpi","Today's numbers"],["visits","Site visits"]];
+const WIDGET_DEFS = [["inbox","Action inbox"],["work","My work"],["activity","Activity"],["kpi","Today's numbers"],["visits","Upcoming experiences"]];
 const WORK_WIDGETS = [
   {id:"queue", label:"My queue", value:"8", hint:"assigned to you", icon:"work", queue:"mine"},
-  {id:"late", label:"Running late", value:"11", hint:"past their due date", icon:"health", queue:"overdue"},
+  {id:"late", label:"Due today", value:"2", hint:"Chen dietary, Boston", icon:"health", queue:"overdue"},
   {id:"unassigned", label:"Unassigned", value:"1", hint:"nobody owns it yet", icon:"teams", queue:"unassigned"},
-  {id:"week", label:"Next 7 days", value:"4", hint:"due this week", icon:"visits", queue:"upcoming"}
+  {id:"week", label:"Next 7 days", value:"4", hint:"bookings this week", icon:"visits", queue:"upcoming"}
 ];
 const PERSONALITIES = ["Straight-talking","Warm","Formal","Dry"];
 const ANSWER_STYLES = ["Short answers","Show the working","Ask before acting"];
@@ -945,10 +893,10 @@ const CONTEXT_DEFS = [
 const CONTEXT_SOURCES = CONTEXT_DEFS.map(c => c[0]);
 const SKILL_DEFS = [
   ["Search records","read"],["Summarise activity","read"],["Read invoices","read"],
-  ["Read site visits","read"],["Check permissions","read"],
+  ["Read bookings","read"],["Check permissions","read"],
   ["Draft email","write"],["Create task","write"],["Update record","write"],
-  ["Schedule visit","write"],["Raise approval","write"],
-  ["Send email","external"],["Send WhatsApp","external"],["Post to Xero","external"],["Push to HubSpot","external"]
+  ["Hold slot","write"],["Raise approval","write"],
+  ["Send email","external"],["Publish content","external"]
 ];
 /* The two questions the agent asks back once it knows the job. */
 const TRAIN_PHASES = [
